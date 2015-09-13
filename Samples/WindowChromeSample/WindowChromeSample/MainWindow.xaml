@@ -1,8 +1,16 @@
-﻿<Window x:Class="WindowChromeSample.MainWindow"
+﻿<Window x:Name="window" x:Class="WindowChromeSample.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" Style="{DynamicResource DefaultWindowStyle}">
     <Grid>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="Auto"/>
+    		<RowDefinition/>
+    	</Grid.RowDefinitions>
+    	<DockPanel>
+    		<TextBlock Text="{Binding Title, ElementName=window, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="6,3,12,3" FontSize="14.667" />
+    		<Button Content="✕" Width="24" Height="24" HorizontalAlignment="Right" Background="Red" BorderThickness="0" Foreground="White" WindowChrome.IsHitTestVisibleInChrome="True"/> 
+    	</DockPanel>
         
     </Grid>
 </Window>
