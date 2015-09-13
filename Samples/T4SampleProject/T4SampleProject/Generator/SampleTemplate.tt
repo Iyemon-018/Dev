@@ -1,0 +1,39 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<# // 制御用ロジックのための名前空間 #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<# // ここから出力結果のテンプレートを記述 #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace T4SampleProject
+{
+    public class Person
+    {
+        #region プロパティ
+        
+        /// <summary>ユーザーIDを設定、取得する。</summary>
+        public int ID { get; set; }
+
+        /// <summary>ユーザー名を設定、取得する。</summary>
+        public string Name { get; set; }
+
+        #endregion
+
+        #region 初期化処理
+
+        public Person()
+        {
+            ID = 0;
+            Name = string.Empty;
+        }
+
+        #endregion
+    }
+}
