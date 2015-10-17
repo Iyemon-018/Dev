@@ -1,0 +1,44 @@
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.Prism.Composition.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.Prism.Interactivity.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.Prism.Mvvm.Desktop.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.Prism.Mvvm.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.Prism.PubSubEvents.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.Prism.Composition.xml
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.Prism.Interactivity.xml
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.Prism.Mvvm.xml
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\MainWindow.g.cs
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\App.g.cs
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\MainWindow.baml
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\CollectionSortFilterSample.csproj.GenerateResource.Cache
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\CollectionSortFilterSample.exe.config
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\CollectionSortFilterSample.exe
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\bin\Debug\CollectionSortFilterSample.pdb
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\CollectionSortFilterSample_MarkupCompile.cache
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\CollectionSortFilterSample_MarkupCompile.lref
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\CollectionSortFilterSample.g.resources
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\CollectionSortFilterSample.Properties.Resources.resources
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\CollectionSortFilterSample.exe
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\WpfApplication8\obj\Debug\CollectionSortFilterSample.pdb
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\CollectionSortFilterSample\bin\Debug\CollectionSortFilterSample.exe.config
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\CollectionSortFilterSample\obj\Debug\CollectionSortFilterSample.exe
+C:\Users\kishii_locak\Documents\Visual Studio 2013\Projects\WpfApplication8\CollectionSortFilterSample\obj\Debug\CollectionSortFilterSample.pdb
+D:\Dev\Dev\Samples\CollectionSortFilterSample\CollectionSortFilterSample\bin\Debug\CollectionSortFilterSample.exe.config
+D:\Dev\Dev\Samples\CollectionSortFilterSample\CollectionSortFilterSample\obj\Debug\CollectionSortFilterSample.exe
+D:\Dev\Dev\Samples\CollectionSortFilterSample\CollectionSortFilterSample\obj\Debug\CollectionSortFilterSample.pdb
