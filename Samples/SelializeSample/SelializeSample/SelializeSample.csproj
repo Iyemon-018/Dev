@@ -53,6 +53,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="TimeTracer.cs" />
+    <Compile Include="ViewModels\BinaryFormatterViewModel.cs" />
+    <Compile Include="Views\BinaryFormatterView.xaml.cs">
+      <DependentUpon>BinaryFormatterView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -61,10 +68,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ComponentModels\BindableBase.cs" />
+    <Compile Include="ComponentModels\ViewModelBase.cs" />
+    <Compile Include="DeepCopyExtensions.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BinaryFormatterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

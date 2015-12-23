@@ -24,5 +24,15 @@ namespace SelializeSample
         {
             InitializeComponent();
         }
+
+        private void BinaryFormatterButton_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new Views.BinaryFormatterView()
+            {
+                DataContext = new ViewModels.BinaryFormatterViewModel(),
+                Owner = this,
+            };
+            w.ShowDialog();
+        }
     }
 }
