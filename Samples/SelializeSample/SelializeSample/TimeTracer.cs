@@ -35,6 +35,7 @@ namespace SelializeSample
         {
             _message = message;
             _watch = new Stopwatch();
+            _watch.Start();
         }
 
         ~TimeTracer()
