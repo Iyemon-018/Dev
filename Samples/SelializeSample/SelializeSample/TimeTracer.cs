@@ -43,6 +43,7 @@ namespace SelializeSample
             Dispose(false);
         }
 
+
         /// <summary>
         /// 計測を停止します。
         /// </summary>
