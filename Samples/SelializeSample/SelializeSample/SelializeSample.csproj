@@ -57,9 +57,15 @@
     <Compile Include="Enums.cs" />
     <Compile Include="TimeTracer.cs" />
     <Compile Include="ViewModels\BinaryFormatterViewModel.cs" />
+    <Compile Include="ViewModels\XmlSerializerViewModel.cs" />
     <Compile Include="Views\BinaryFormatterView.xaml.cs">
       <DependentUpon>BinaryFormatterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\XmlSerializerView.xaml.cs">
+      <DependentUpon>XmlSerializerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XmlDeserializeExtensions.cs" />
+    <Compile Include="XmlSerializeExtensions.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,6 +82,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\BinaryFormatterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\XmlSerializerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
