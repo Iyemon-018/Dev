@@ -34,5 +34,16 @@ namespace SelializeSample
             };
             w.ShowDialog();
         }
+
+        private void XmlSerializerButton_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new Views.XmlSerializerView()
+            {
+                DataContext = new ViewModels.XmlSerializerViewModel(),
+                Owner = this,
+            };
+            w.ShowDialog();
+        }
+
     }
 }

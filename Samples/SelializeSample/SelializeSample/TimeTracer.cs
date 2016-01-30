@@ -34,14 +34,14 @@ namespace SelializeSample
         public TimeTracer(string message)
         {
             _message = message;
-            _watch = new Stopwatch();
-            _watch.Start();
+            _watch = Stopwatch.StartNew();
         }
 
         ~TimeTracer()
         {
             Dispose(false);
         }
+
 
         /// <summary>
         /// 計測を停止します。

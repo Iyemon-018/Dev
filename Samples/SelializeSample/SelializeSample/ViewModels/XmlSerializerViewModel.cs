@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 namespace SelializeSample.ViewModels
 {
     /// <summary>
-    /// BinaryForamtterView用のViewModelクラスです。
+    /// XmlSerializerView用のViewModelクラスです。
     /// </summary>
     [Serializable]
-    public class BinaryFormatterViewModel : ViewModelBase
+    public class XmlSerializerViewModel : ViewModelBase
     {
         /// <summary>
         /// オブジェクトの状態を保存するためのスナップショットデータです。
         /// </summary>
-        private ViewModelBase _snapshot;
-
+        private string _snapshot;
+            
         private int _age;
 
         private string _name;
@@ -28,7 +28,7 @@ namespace SelializeSample.ViewModels
 
         private Gender _gender;
 
-        public BinaryFormatterViewModel()
+        public XmlSerializerViewModel()
         {
             Age = 20;
             Name = string.Empty;
@@ -73,32 +73,13 @@ namespace SelializeSample.ViewModels
         }
 
         /// <summary>
-        /// オブジェクト同士を比較します。
-        /// </summary>
-        /// <param name="obj">比較対象のオブジェクト</param>
-        /// <returns>true:一致, false:不一致</returns>
-        public override bool Equals(object obj)
-        {
-            var other = obj as BinaryFormatterViewModel;
-            if (other == null)
-            {
-                return false;
-            }
-            return Age == other.Age
-                 & Name.Equals(other.Name)
-                 & Birthday == other.Birthday
-                 & BloodType == other.BloodType
-                 & Gender == other.Gender;
-        }
-
-        /// <summary>
         /// スナップショットデータを保存します。
         /// </summary>
         public void SaveSnapshotData()
         {
             using (new TimeTracer("オブジェクトのコピー"))
             {
-                _snapshot = this.DeepCopy();
+                _snapshot = this.Serialize();
             }
         }
 
@@ -113,12 +94,13 @@ namespace SelializeSample.ViewModels
         {
             using (new TimeTracer("更新チェック"))
             {
-                if (_snapshot == null)
+                if (string.IsNullOrEmpty(_snapshot))
                 {
                     return true;
                 }
 
-                return !this.DeepCopy().Equals(_snapshot);
+                var nowData = this.Serialize();
+                return !_snapshot.Equals(nowData);
             }
         }
 
@@ -127,11 +109,11 @@ namespace SelializeSample.ViewModels
         /// </summary>
         public void Reset()
         {
-            using (new TimeTracer("オブジェクトにリセット"))
+            using (new TimeTracer("オブジェクトをリセット"))
             {
-                if (_snapshot != null)
+                if (!string.IsNullOrEmpty(_snapshot))
                 {
-                    UpdateObject(_snapshot);
+                    UpdateObject(_snapshot.Deserialize<XmlSerializerViewModel>());
                 }
             }
         }
@@ -140,18 +122,13 @@ namespace SelializeSample.ViewModels
         /// オブジェクトを更新します。
         /// </summary>
         /// <param name="obj">オブジェクトデータ</param>
-        protected void UpdateObject(ViewModelBase obj)
+        private void UpdateObject(XmlSerializerViewModel obj)
         {
-            var vm = obj as BinaryFormatterViewModel;
-            if (vm != null)
-            {
-                Age = vm.Age;
-                Name = vm.Name;
-                Birthday = vm.Birthday;
-                BloodType = vm.BloodType;
-                Gender = vm.Gender;
-            }
+            Age = obj.Age;
+            Name = obj.Name;
+            Birthday = obj.Birthday;
+            BloodType = obj.BloodType;
+            Gender = obj.Gender;
         }
-
     }
 }
