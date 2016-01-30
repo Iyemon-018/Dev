@@ -1,8 +1,16 @@
 ﻿<Window x:Class="SelializeSample.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow"
+        Width="525"
+        Height="350">
     <Grid>
-        
+        <Button x:Name="BinaryFormatterButton"
+                Margin="10,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="BinaryFormatterButton_Click"
+                Content="BinaryFormatter" />
+
     </Grid>
 </Window>

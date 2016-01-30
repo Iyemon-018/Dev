@@ -1,0 +1,15 @@
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\bin\Debug\EPPlustSample.exe.config
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\bin\Debug\EPPlustSample.exe
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\bin\Debug\EPPlustSample.pdb
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\bin\Debug\EPPlus.dll
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\bin\Debug\EPPlus.xml
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\obj\Debug\EPPlustSample.csprojResolveAssemblyReference.cache
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\obj\Debug\MainWindow.baml
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\obj\Debug\MainWindow.g.cs
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\obj\Debug\App.g.cs
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\obj\Debug\EPPlustSample_MarkupCompile.cache
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\obj\Debug\EPPlustSample.g.resources
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\obj\Debug\EPPlustSample.Properties.Resources.resources
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\obj\Debug\EPPlustSample.csproj.GenerateResource.Cache
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\obj\Debug\EPPlustSample.exe
+D:\Dev\Dev\Samples\EPPlustSample\EPPlustSample\obj\Debug\EPPlustSample.pdb

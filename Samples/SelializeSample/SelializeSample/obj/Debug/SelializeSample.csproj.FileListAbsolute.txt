@@ -1,0 +1,17 @@
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\bin\Debug\SelializeSample.exe.config
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\bin\Debug\SelializeSample.exe
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\bin\Debug\SelializeSample.pdb
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\MainWindow.baml
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\MainWindow.g.cs
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\App.g.cs
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\SelializeSample_MarkupCompile.cache
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\SelializeSample.g.resources
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\SelializeSample.Properties.Resources.resources
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\SelializeSample.csproj.GenerateResource.Cache
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\SelializeSample.exe
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\SelializeSample.pdb
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\Views\BinaryFormatterView.baml
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\Views\BinaryFormatterView.g.cs
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\SelializeSample_MarkupCompile.lref
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Dev\Dev\Samples\SelializeSample\SelializeSample\obj\Debug\SelializeSample.csprojResolveAssemblyReference.cache
