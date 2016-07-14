@@ -1,0 +1,5 @@
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Views\bin\Debug\Mc.Common.Views.dll
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Views\bin\Debug\Mc.Common.Views.pdb
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Views\obj\Debug\Mc.Common.Views.csprojResolveAssemblyReference.cache
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Views\obj\Debug\Mc.Common.Views.dll
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Views\obj\Debug\Mc.Common.Views.pdb

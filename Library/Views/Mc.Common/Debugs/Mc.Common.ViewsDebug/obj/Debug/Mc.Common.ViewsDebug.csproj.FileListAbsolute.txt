@@ -1,0 +1,15 @@
+D:\Dev\Dev\Library\Views\Mc.Common\Mc.Common.ViewsDebug\bin\Debug\Mc.Common.ViewsDebug.exe.config
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\bin\Debug\Mc.Common.ViewsDebug.exe.config
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\bin\Debug\Mc.Common.ViewsDebug.exe
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\bin\Debug\Mc.Common.ViewsDebug.pdb
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\Mc.Common.ViewsDebug.csprojResolveAssemblyReference.cache
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\MainWindow.g.cs
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\App.g.cs
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\Mc.Common.ViewsDebug_MarkupCompile.cache
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\Mc.Common.ViewsDebug_MarkupCompile.lref
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\MainWindow.baml
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\Mc.Common.ViewsDebug.g.resources
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\Mc.Common.ViewsDebug.Properties.Resources.resources
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\Mc.Common.ViewsDebug.csproj.GenerateResource.Cache
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\Mc.Common.ViewsDebug.exe
+D:\Dev\Dev\Library\Views\Mc.Common\Debugs\Mc.Common.ViewsDebug\obj\Debug\Mc.Common.ViewsDebug.pdb
