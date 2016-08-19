@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{50A8B4F4-90EC-488E-B1E8-E9330C33AD3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Debug", "Debug", "{BD339A9F-E738-43C8-A365-9ABD8D3123BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tool", "Tool", "{0E04A54D-97BF-40A2-A617-76363E47EE3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{283F340C-86F5-4ACA-86F2-2A0B676B80B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JenkinsNotificationTool", "src\JenkinsNotificationTool\JenkinsNotificationTool.csproj", "{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB} = {50A8B4F4-90EC-488E-B1E8-E9330C33AD3D}
+	EndGlobalSection
+EndGlobal

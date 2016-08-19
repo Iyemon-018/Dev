@@ -1,0 +1,2 @@
+D:\Users\kishii.MICROCIRCUS\Documents\Visual Studio 2015\Projects\JenkinsNotificationTool\JenkinsNotificationTool\src\JenkinsNotificationTool\bin\Debug\JenkinsNotificationTool.exe.config
+D:\Dev\GitHub\Develops\JenkinsNotificationTool\src\JenkinsNotificationTool\bin\Debug\JenkinsNotificationTool.exe.config
