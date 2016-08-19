@@ -1,2 +1,9 @@
 Samples/WindowChromeSample/WindowChromeSample/bin/
 Samples/WindowChromeSample/WindowChromeSample/obj/
+/Develops/JenkinsNotificationTool/Sample/WebSocket4Net_Sample/obj/Debug
+/Develops/JenkinsNotificationTool/.vs/JenkinsNotificationTool/v14
+*.exe
+*.pdb
+/Develops/JenkinsNotificationTool/src/JenkinsNotificationTool/obj/Debug/App.g.cs
+*/obj/
+*/bin/

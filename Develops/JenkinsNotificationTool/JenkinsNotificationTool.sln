@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{283F34
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JenkinsNotificationTool", "src\JenkinsNotificationTool\JenkinsNotificationTool.csproj", "{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSocket4Net_Sample", "Sample\WebSocket4Net_Sample\WebSocket4Net_Sample.csproj", "{DCF1CF22-95A6-4A71-8E40-4D31F5054C31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +25,16 @@ Global
 		{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCF1CF22-95A6-4A71-8E40-4D31F5054C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF1CF22-95A6-4A71-8E40-4D31F5054C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF1CF22-95A6-4A71-8E40-4D31F5054C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF1CF22-95A6-4A71-8E40-4D31F5054C31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{62DCF7ED-D36B-4A37-90C8-BD6D0E5C72FB} = {50A8B4F4-90EC-488E-B1E8-E9330C33AD3D}
+		{DCF1CF22-95A6-4A71-8E40-4D31F5054C31} = {283F340C-86F5-4ACA-86F2-2A0B676B80B0}
 	EndGlobalSection
 EndGlobal
