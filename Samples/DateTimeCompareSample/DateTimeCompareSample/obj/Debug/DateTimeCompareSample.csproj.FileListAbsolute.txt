@@ -1,0 +1,16 @@
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\bin\Debug\DateTimeCompareSample.exe.config
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\bin\Debug\DateTimeCompareSample.exe
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\bin\Debug\DateTimeCompareSample.pdb
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\obj\Debug\MainWindow.baml
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\obj\Debug\MainWindow.g.cs
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\obj\Debug\App.g.cs
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\obj\Debug\DateTimeCompareSample_MarkupCompile.cache
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\obj\Debug\DateTimeCompareSample.g.resources
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\obj\Debug\DateTimeCompareSample.Properties.Resources.resources
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\obj\Debug\DateTimeCompareSample.csproj.GenerateResource.Cache
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\obj\Debug\DateTimeCompareSample.exe
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\obj\Debug\DateTimeCompareSample.pdb
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\bin\Debug\Microsoft.Windows.Design.Extensibility.dll
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\bin\Debug\Microsoft.Windows.Design.Interaction.dll
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\bin\Debug\ja\Microsoft.Windows.Design.Extensibility.resources.dll
+D:\Dev\Dev\Samples\DateTimeCompareSample\DateTimeCompareSample\bin\Debug\ja\Microsoft.Windows.Design.Interaction.resources.dll

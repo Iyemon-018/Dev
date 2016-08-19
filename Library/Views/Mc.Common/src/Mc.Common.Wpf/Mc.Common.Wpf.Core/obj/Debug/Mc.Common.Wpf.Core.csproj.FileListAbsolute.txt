@@ -1,0 +1,5 @@
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Core\bin\Debug\Mc.Common.Wpf.Core.dll
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Core\bin\Debug\Mc.Common.Wpf.Core.pdb
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Core\obj\Debug\Mc.Common.Wpf.Core.csprojResolveAssemblyReference.cache
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Core\obj\Debug\Mc.Common.Wpf.Core.dll
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Core\obj\Debug\Mc.Common.Wpf.Core.pdb

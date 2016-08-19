@@ -1,0 +1,15 @@
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\bin\Debug\XmlSerializerSample.exe.config
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\bin\Debug\XmlSerializerSample.exe
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\bin\Debug\XmlSerializerSample.pdb
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\XmlSerializerSample.csprojResolveAssemblyReference.cache
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\MainWindow.baml
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\MainWindow.g.cs
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\App.g.cs
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\XmlSerializerSample_MarkupCompile.cache
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\XmlSerializerSample.g.resources
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\XmlSerializerSample.Properties.Resources.resources
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\XmlSerializerSample.csproj.GenerateResource.Cache
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\XmlSerializerSample.exe
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\XmlSerializerSample.pdb
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\bin\Debug\Message-Config.xml
+D:\Dev\Dev\Samples\XmlSerializerSample\XmlSerializerSample\obj\Debug\XmlSerializerSample_Content.g.cs

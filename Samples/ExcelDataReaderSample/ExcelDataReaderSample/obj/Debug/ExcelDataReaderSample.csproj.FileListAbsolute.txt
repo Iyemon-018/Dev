@@ -1,0 +1,6 @@
+D:\Dev\Dev\Samples\ExcelDataReaderSample\ExcelDataReaderSample\bin\Debug\ExcelDataReaderSample.exe.config
+D:\Dev\Dev\Samples\ExcelDataReaderSample\ExcelDataReaderSample\obj\Debug\ExcelDataReaderSample.csprojResolveAssemblyReference.cache
+D:\Dev\Dev\Samples\ExcelDataReaderSample\ExcelDataReaderSample\obj\Debug\MainWindow.g.cs
+D:\Dev\Dev\Samples\ExcelDataReaderSample\ExcelDataReaderSample\obj\Debug\App.g.cs
+D:\Dev\Dev\Samples\ExcelDataReaderSample\ExcelDataReaderSample\obj\Debug\ExcelDataReaderSample_MarkupCompile.cache
+D:\Dev\Dev\Samples\ExcelDataReaderSample\ExcelDataReaderSample\obj\Debug\ExcelDataReaderSample_MarkupCompile.lref

@@ -1,0 +1,11 @@
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\bin\Debug\Mc.Common.Wpf.Controls.dll
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\bin\Debug\Mc.Common.Wpf.Controls.pdb
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\obj\Debug\Mc.Common.Wpf.Controls.csprojResolveAssemblyReference.cache
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\obj\Debug\Mc.Common.Wpf.Controls_MarkupCompile.cache
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\obj\Debug\Mc.Common.Wpf.Controls_MarkupCompile.lref
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\obj\Debug\Themes\Generic.baml
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\obj\Debug\Mc.Common.Wpf.Controls.g.resources
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\obj\Debug\Mc.Common.Wpf.Controls.Properties.Resources.resources
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\obj\Debug\Mc.Common.Wpf.Controls.csproj.GenerateResource.Cache
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\obj\Debug\Mc.Common.Wpf.Controls.dll
+D:\Dev\Dev\Library\Views\Mc.Common\src\Mc.Common.Wpf\Mc.Common.Wpf.Controls\obj\Debug\Mc.Common.Wpf.Controls.pdb

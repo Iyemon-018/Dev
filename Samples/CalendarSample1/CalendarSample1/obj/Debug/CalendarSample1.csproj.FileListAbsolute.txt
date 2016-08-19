@@ -1,0 +1,17 @@
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\bin\Debug\CalendarSample1.exe.config
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\bin\Debug\CalendarSample1.exe
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\bin\Debug\CalendarSample1.pdb
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\CalendarSample1.csprojResolveAssemblyReference.cache
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\CalendarStyle.baml
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\App.baml
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\MainWindow.g.cs
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\App.g.cs
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\CalendarSample1_MarkupCompile.cache
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\CalendarSample1_MarkupCompile.lref
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\MainWindow.baml
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\CalendarSample1.g.resources
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\CalendarSample1.Properties.Resources.resources
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\CalendarSample1.csproj.GenerateResource.Cache
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\CalendarSample1.exe
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\CalendarSample1.pdb
+D:\Dev\Dev\Samples\CalendarSample1\CalendarSample1\obj\Debug\GeneratedInternalTypeHelper.g.cs

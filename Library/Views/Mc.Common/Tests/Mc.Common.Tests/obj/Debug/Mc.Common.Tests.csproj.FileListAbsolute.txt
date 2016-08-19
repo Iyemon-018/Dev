@@ -1,0 +1,13 @@
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\bin\Debug\Mc.Common.Tests.dll
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\bin\Debug\Mc.Common.Tests.pdb
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\bin\Debug\Mc.Common.Views.dll
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\bin\Debug\Mc.Common.Wpf.Controls.dll
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\bin\Debug\Mc.Common.Wpf.Core.dll
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\bin\Debug\Mc.Common.Views.pdb
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\bin\Debug\Mc.Common.Wpf.Controls.pdb
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\bin\Debug\Mc.Common.Wpf.Core.pdb
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\bin\Debug\ja\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\obj\Debug\Mc.Common.Tests.csprojResolveAssemblyReference.cache
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\obj\Debug\Mc.Common.Tests.dll
+D:\Dev\Dev\Library\Views\Mc.Common\Tests\Mc.Common.Tests\obj\Debug\Mc.Common.Tests.pdb
