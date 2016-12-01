@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 
 namespace NotifyIconSample
 {
+    using System.ComponentModel;
+    using Hardcodet.Wpf.TaskbarNotification;
+
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
@@ -23,6 +26,35 @@ namespace NotifyIconSample
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new MainWindowViewModel(new BalloonTipService(TaskbarIcon));
+        }
+
+        /// <summary>
+        /// <see cref="TaskbarIcon"/> をダブルクリックした際に呼ばれるイベントハンドラです。
+        /// </summary>
+        /// <param name="sender">イベント呼び出し元オブジェクト</param>
+        /// <param name="e">イベント引数オブジェクト</param>
+        private void TaskbarIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            var v = new PreferencesWindow();
+            v.Show();
+        }
+
+        /// <summary>
+        /// <see cref="E:System.Windows.Window.Closing" /> イベントを発生させます。
+        /// </summary>
+        /// <param name="e">イベント データを格納している <see cref="T:System.ComponentModel.CancelEventArgs" />。</param>
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            TaskbarIcon.Dispose();
+
+            base.OnClosing(e);
+        }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

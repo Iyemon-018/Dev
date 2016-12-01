@@ -12,3 +12,8 @@ Samples/WindowChromeSample/WindowChromeSample/obj/
 */bin/Release
 /Develops/JenkinsNotificationTool/src/JenkinsNotificationTool
 /Develops/JenkinsNotificationTool/Sample/NotifyIconSample/obj/Debug
+/Develops/JenkinsNotificationTool/packages
+/Develops/JenkinsNotificationTool/Sample/NotifyIconSample/bin/Debug
+/Develops/JenkinsNotificationTool/src/JenkinsNotification.CustomControls/bin/Debug
+*.DotSettings
+/Develops/JenkinsNotificationTool/Sample/WebSocket4Net_Sample/bin/Debug
