@@ -8,3 +8,5 @@ Samples/WindowChromeSample/WindowChromeSample/obj/
 */obj/
 */bin/
 /Develops/JenkinsNotificationTool/src/JenkinsNotification.CustomControls/obj/Debug
+*/bin/Debug
+*/bin/Release
