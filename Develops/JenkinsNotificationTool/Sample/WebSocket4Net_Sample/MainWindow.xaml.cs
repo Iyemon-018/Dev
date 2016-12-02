@@ -90,7 +90,7 @@ namespace WebSocket4Net_Sample
             _socket.Error += (sender, e) =>
                              {
                                  AddText("[Error]");
-                                 AddText(string.Format("{0}\r\n{1}", e.Exception.GetType(), e.Exception.ToString()));
+                                 AddText($"{e.Exception.GetType()}\r\n{e.Exception.ToString()}");
                              };
 
             //
