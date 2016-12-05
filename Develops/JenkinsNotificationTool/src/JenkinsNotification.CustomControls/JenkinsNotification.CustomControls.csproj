@@ -90,6 +90,12 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JenkinsNotification.Core\JenkinsNotification.Core.csproj">
+      <Project>{dd22eb0e-ad3c-49bb-9a37-ad58d67e8cd4}</Project>
+      <Name>JenkinsNotification.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
