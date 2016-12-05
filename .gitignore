@@ -18,3 +18,4 @@ Samples/WindowChromeSample/WindowChromeSample/obj/
 *.DotSettings
 /Develops/JenkinsNotificationTool/Sample/WebSocket4Net_Sample/bin/Debug
 /Develops/JenkinsNotificationTool/JenkinsNotificationTool.sln.GhostDoc.xml
+/Develops/JenkinsNotificationTool/src/JenkinsNotification.Core/obj/Debug

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JenkinsNotification.CustomC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotifyIconSample", "Sample\NotifyIconSample\NotifyIconSample.csproj", "{B4090A19-3080-4ECC-9C2F-7EE32FB5FA1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JenkinsNotification.Core", "src\JenkinsNotification.Core\JenkinsNotification.Core.csproj", "{DD22EB0E-AD3C-49BB-9A37-AD58D67E8CD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{B4090A19-3080-4ECC-9C2F-7EE32FB5FA1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4090A19-3080-4ECC-9C2F-7EE32FB5FA1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4090A19-3080-4ECC-9C2F-7EE32FB5FA1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD22EB0E-AD3C-49BB-9A37-AD58D67E8CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD22EB0E-AD3C-49BB-9A37-AD58D67E8CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD22EB0E-AD3C-49BB-9A37-AD58D67E8CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD22EB0E-AD3C-49BB-9A37-AD58D67E8CD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +56,6 @@ Global
 		{DCF1CF22-95A6-4A71-8E40-4D31F5054C31} = {283F340C-86F5-4ACA-86F2-2A0B676B80B0}
 		{7189B038-6EE8-4D9C-AB53-9279ABB7CA09} = {50A8B4F4-90EC-488E-B1E8-E9330C33AD3D}
 		{B4090A19-3080-4ECC-9C2F-7EE32FB5FA1B} = {283F340C-86F5-4ACA-86F2-2A0B676B80B0}
+		{DD22EB0E-AD3C-49BB-9A37-AD58D67E8CD4} = {50A8B4F4-90EC-488E-B1E8-E9330C33AD3D}
 	EndGlobalSection
 EndGlobal
