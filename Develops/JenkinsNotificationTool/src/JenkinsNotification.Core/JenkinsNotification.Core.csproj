@@ -83,7 +83,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComponentModels\IErrorData.cs" />
+    <Compile Include="ComponentModels\ErrorsContainerCustom.cs" />
     <Compile Include="ComponentModels\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
