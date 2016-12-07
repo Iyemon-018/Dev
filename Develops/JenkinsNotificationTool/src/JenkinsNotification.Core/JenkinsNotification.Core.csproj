@@ -88,11 +88,12 @@
     <Compile Include="ComponentModels\ApplicationViewModelBase.cs" />
     <Compile Include="ComponentModels\ErrorsContainerCustom.cs" />
     <Compile Include="ComponentModels\ViewModelBase.cs" />
-    <Compile Include="Configurations\ApplicationConfiguration.Configs.cs" />
+    <Compile Include="Configurations\ApplicationConfiguration.Configs.cs">
+      <DependentUpon>ApplicationConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configurations\ApplicationConfiguration.cs" />
     <Compile Include="Configurations\DisplayConfiguration.cs" />
     <Compile Include="Configurations\NotifyConfiguration.cs" />
-    <Compile Include="Configurations\SerializableBase.cs" />
     <Compile Include="Configurations\Verify\ApplicationConfigurationVerify.cs" />
     <Compile Include="Configurations\Verify\ConfigurationVerifyException.cs" />
     <Compile Include="Configurations\Verify\IConfigurationVerify.cs" />
@@ -118,6 +119,7 @@
     </Compile>
     <Compile Include="Services\IBalloonTipService.cs" />
     <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Utility\ConfigurationUtility.cs" />
     <Compile Include="Utility\FileUtility.cs" />
     <Compile Include="Utility\PathUtility.cs" />
     <Compile Include="Utility\Products.cs" />

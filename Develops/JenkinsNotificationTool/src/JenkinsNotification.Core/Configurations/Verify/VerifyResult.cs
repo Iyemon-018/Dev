@@ -11,7 +11,12 @@
             
         }
 
-        public VerifyResult(bool correct, string errorMessage)
+        public static VerifyResult Error(string errroMessage)
+        {
+            return new VerifyResult(false, errroMessage);
+        }
+
+        internal VerifyResult(bool correct, string errorMessage)
         {
             Correct = correct;
             ErrorMessage = errorMessage;

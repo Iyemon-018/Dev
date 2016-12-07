@@ -33,6 +33,28 @@
         }
 
         /// <summary>
+        /// 指定したファイルパスへシリアライズします。
+        /// </summary>
+        /// <typeparam name="T">自分自身の型</typeparam>
+        /// <param name="self">自分自身</param>
+        /// <param name="extraTypes">
+        /// シリアル化する追加のオブジェクト型の Type 配列。<para/>
+        /// シリアル化したい型を設定すると、<see cref="object"/> 型のデータをシリアライズします。
+        /// </param>
+        /// <param name="filePath">出力先ファイルパス</param>
+        public static void Serialize<T>(this T self, string filePath, params Type[] extraTypes)
+        {
+            var directory = Path.GetDirectoryName(filePath);
+            FileUtility.CreateDirectory(directory);
+
+            using (var fs = new FileStream(filePath, FileMode.Create))
+            {
+                var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T), extraTypes);
+                serializer.Serialize(fs, self);
+            }
+        }
+
+        /// <summary>
         /// このオブジェクトをXMLへシリアライズします。
         /// </summary>
         /// <typeparam name="T">オブジェクトの型</typeparam>

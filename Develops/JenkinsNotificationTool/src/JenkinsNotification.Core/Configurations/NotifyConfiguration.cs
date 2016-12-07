@@ -9,6 +9,8 @@
     [Serializable]
     public class NotifyConfiguration
     {
+        #region Properties
+
         /// <summary>
         /// バルーン通知のアニメーション種別を設定、または取得します。
         /// </summary>
@@ -31,5 +33,7 @@
         /// ジョブ結果が成功だった場合でも通知するかどうかを設定、または取得します。
         /// </summary>
         public bool IsNotifySuccess { get; set; }
+
+        #endregion
     }
 }

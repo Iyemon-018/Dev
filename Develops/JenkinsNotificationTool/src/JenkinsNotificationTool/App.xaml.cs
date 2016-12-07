@@ -8,10 +8,20 @@ using System.Windows;
 
 namespace JenkinsNotificationTool
 {
+    using JenkinsNotification.Core;
+    using JenkinsNotification.Core.Configurations;
+
     /// <summary>
     /// App.xaml の相互作用ロジック
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            
+            //ApplicationConfiguration.SaveCurrent();
+            ApplicationConfiguration.LoadCurrent();
+        }
     }
 }

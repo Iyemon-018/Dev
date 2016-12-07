@@ -1,16 +1,36 @@
 ﻿namespace JenkinsNotification.Core
 {
-    using JenkinsNotification.Core.Configurations;
+    using Configurations;
 
+    /// <summary>
+    /// このアプリケーションの機能管理クラスです。
+    /// </summary>
     public sealed class ApplicationManager
     {
-        public static ApplicationManager Instance => new ApplicationManager();
+        #region Ctor
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         internal ApplicationManager()
         {
             
         }
 
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// 唯一のインスタンスを取得します。
+        /// </summary>
+        public static ApplicationManager Instance => new ApplicationManager();
+
+        /// <summary>
+        /// アプリケーション構成情報を取得します。
+        /// </summary>
         public ApplicationConfiguration ApplicationConfiguration => ApplicationConfiguration.Current;
+
+        #endregion
     }
 }
