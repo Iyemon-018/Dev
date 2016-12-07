@@ -35,6 +35,7 @@
             //
             NotifyConfiguration = new NotifyConfiguration
                                   {
+                                      TargetUri           = "ws://mc-tfserver:8081/jenkins",
                                       PopupAnimationType  = PopupAnimation.Slide,
                                       PopupTimeout        = TimeSpan.FromSeconds(10),
                                       DisplayHistoryCount = 100,

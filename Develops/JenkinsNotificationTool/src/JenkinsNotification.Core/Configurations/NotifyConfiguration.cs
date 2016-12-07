@@ -12,6 +12,11 @@
         #region Properties
 
         /// <summary>
+        /// WebSocketの接続先URIを設定、または取得します。
+        /// </summary>
+        public string TargetUri { get; set; }
+
+        /// <summary>
         /// バルーン通知のアニメーション種別を設定、または取得します。
         /// </summary>
         public PopupAnimation PopupAnimationType { get; set; }

@@ -1,5 +1,6 @@
 ﻿namespace JenkinsNotification.Core
 {
+    using System.Windows;
     using Configurations;
 
     /// <summary>
@@ -32,5 +33,15 @@
         public ApplicationConfiguration ApplicationConfiguration => ApplicationConfiguration.Current;
 
         #endregion
+
+        public void Initialize()
+        {
+            
+        }
+
+        public void Shutdown()
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
