@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,7 +54,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="NotifyIconWrapper.xaml">
+    <Page Include="BalloonTips\JobExecuteResultBalloonTip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -63,8 +64,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NotifyIconWrapper.xaml.cs">
-      <DependentUpon>NotifyIconWrapper.xaml</DependentUpon>
+    <Compile Include="BalloonTips\JobExecuteResultBalloonTip.xaml.cs">
+      <DependentUpon>JobExecuteResultBalloonTip.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -79,6 +80,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\BalloonTipService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

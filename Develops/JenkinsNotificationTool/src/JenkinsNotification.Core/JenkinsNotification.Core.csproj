@@ -69,6 +69,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -83,8 +84,25 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationManager.cs" />
+    <Compile Include="ComponentModels\ApplicationViewModelBase.cs" />
     <Compile Include="ComponentModels\ErrorsContainerCustom.cs" />
     <Compile Include="ComponentModels\ViewModelBase.cs" />
+    <Compile Include="Configurations\ApplicationConfiguration.Configs.cs" />
+    <Compile Include="Configurations\ApplicationConfiguration.cs" />
+    <Compile Include="Configurations\DisplayConfiguration.cs" />
+    <Compile Include="Configurations\NotifyConfiguration.cs" />
+    <Compile Include="Configurations\SerializableBase.cs" />
+    <Compile Include="Configurations\Verify\ApplicationConfigurationVerify.cs" />
+    <Compile Include="Configurations\Verify\ConfigurationVerifyException.cs" />
+    <Compile Include="Configurations\Verify\IConfigurationVerify.cs" />
+    <Compile Include="Configurations\Verify\NotifyConfigurationVerify.cs" />
+    <Compile Include="Configurations\Verify\VerifyResult.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\XmlDeserializer.cs" />
+    <Compile Include="Extensions\XmlSerializer.cs" />
+    <Compile Include="Jenkins\Api\JobExecuteResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,6 +116,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\IBalloonTipService.cs" />
+    <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Utility\FileUtility.cs" />
+    <Compile Include="Utility\PathUtility.cs" />
+    <Compile Include="Utility\Products.cs" />
+    <Compile Include="Utility\ViewUtility.cs" />
+    <Compile Include="ViewModels\Api\IJobExecuteResult.cs" />
+    <Compile Include="ViewModels\Api\JobExecuteResultViewModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -111,7 +137,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Extensions\" />
+    <Folder Include="Connections\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

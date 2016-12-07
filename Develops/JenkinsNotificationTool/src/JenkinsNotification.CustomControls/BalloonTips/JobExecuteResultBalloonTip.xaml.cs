@@ -13,16 +13,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace JenkinsNotification.CustomControls
+namespace JenkinsNotification.CustomControls.BalloonTips
 {
+    using JenkinsNotification.Core.ViewModels.Api;
+
     /// <summary>
-    /// NotifyIconWrapper.xaml の相互作用ロジック
+    /// JobExecuteResultBalloonTip.xaml の相互作用ロジック
     /// </summary>
-    public partial class NotifyIconWrapper : UserControl
+    public partial class JobExecuteResultBalloonTip : UserControl
     {
-        public NotifyIconWrapper()
+        private readonly IJobExecuteResult _vm;
+
+        public JobExecuteResultBalloonTip(IJobExecuteResult executeResult)
         {
             InitializeComponent();
+
+            _vm = executeResult;
+            DataContext = _vm;
         }
     }
 }
