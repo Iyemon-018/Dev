@@ -8,18 +8,14 @@
 
     public class MainViewModel : ApplicationViewModelBase
     {
-        private readonly IBalloonTipService _balloonTipService;
-
         public MainViewModel()
-            : this(new DialogService(), null)
+            : this(null)
         {
-            
+
         }
 
-        public MainViewModel(IDialogService dialogService, IBalloonTipService balloonTipService) : base(dialogService)
+        public MainViewModel(IInjectionService injectionService) : base(injectionService)
         {
-            _balloonTipService = balloonTipService;
-
             //
             // 各コマンドの初期化を行う。
             //
@@ -29,7 +25,7 @@
             // コンテキストメニューからメッセージボックスを表示すると即時クローズされてしまうので
             // メッセージ無しで終了する。
             //
-            ExitCommand = new DelegateCommand(() =>ApplicationManager.Shutdown());
+            ExitCommand = new DelegateCommand(() => ApplicationManager.Shutdown());
 
             ConfigurationCommand = new DelegateCommand(() =>
                                                        {
@@ -41,6 +37,11 @@
                                                                   {
                                                                       // TODO 通知受信履歴一覧を表示する。
                                                                   });
+
+            ShowBalloonCommand = new DelegateCommand(() =>
+                                                     {
+                                                         BalloonTipService.NotifyInformation("Test", "テスト的にバルーン出した。");
+                                                     });
         }
 
         public DelegateCommand ExitCommand { get; private set; }
@@ -48,5 +49,7 @@
         public DelegateCommand ConfigurationCommand { get; private set; }
 
         public DelegateCommand ReceivedNotificationListCommand { get; private set; }
+
+        public DelegateCommand ShowBalloonCommand { get; private set; }
     }
 }

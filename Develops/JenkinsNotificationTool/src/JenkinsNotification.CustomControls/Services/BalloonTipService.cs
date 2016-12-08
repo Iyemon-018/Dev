@@ -23,7 +23,7 @@
         /// <summary>
         /// アプリケーション構成情報の参照
         /// </summary>
-        private readonly ApplicationConfiguration _config = ApplicationManager.Instance.ApplicationConfiguration;
+        private readonly ApplicationConfiguration _config = ApplicationManager.Instance?.ApplicationConfiguration;
 
         /// <summary>
         /// バルーン通知を表示するための<see cref="TaskbarIcon"/>

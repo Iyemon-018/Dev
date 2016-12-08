@@ -10,6 +10,9 @@ namespace JenkinsNotificationTool
 {
     using JenkinsNotification.Core;
     using JenkinsNotification.Core.Configurations;
+    using JenkinsNotification.Core.Services;
+    using JenkinsNotification.CustomControls.Services;
+    using JenkinsNotificationTool.Views;
 
     /// <summary>
     /// App.xaml の相互作用ロジック
@@ -18,10 +21,12 @@ namespace JenkinsNotificationTool
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            ApplicationManager.SetDefaultViewModelLocater(new InjectionService());
+
             base.OnStartup(e);
-            
-            //ApplicationConfiguration.SaveCurrent();
-            ApplicationConfiguration.LoadCurrent();
+
+            var view = new MainView();
+            ApplicationManager.Initialize(new BalloonTipService(view.TaskbarIcon));
         }
     }
 }
