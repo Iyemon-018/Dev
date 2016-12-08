@@ -1,21 +1,17 @@
 ﻿namespace JenkinsNotification.CustomControls.Services
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Linq;
-    using System.Threading.Tasks;
     using Hardcodet.Wpf.TaskbarNotification;
-    using JenkinsNotification.Core;
-    using JenkinsNotification.Core.Configurations;
-    using JenkinsNotification.Core.Services;
-    using JenkinsNotification.Core.ViewModels.Api;
-    using JenkinsNotification.CustomControls.BalloonTips;
+    using Core;
+    using Core.Configurations;
+    using Core.Services;
+    using Core.ViewModels.Api;
+    using BalloonTips;
 
     /// <summary>
     /// バルーン通知サービス クラスです。
     /// </summary>
-    /// <seealso cref="JenkinsNotification.Core.Services.IBalloonTipService" />
+    /// <seealso cref="IBalloonTipService" />
     public class BalloonTipService : IBalloonTipService
     {
         #region Fields

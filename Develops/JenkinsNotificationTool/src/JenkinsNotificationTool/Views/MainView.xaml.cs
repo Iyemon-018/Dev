@@ -9,13 +9,19 @@
     using JenkinsNotificationTool.ViewModels;
 
     /// <summary>
-    /// MainView.xaml の相互作用ロジック
+    /// タスクトレイに表示するアイコンを包含するメインのビュー クラスです。
     /// </summary>
+    /// <remarks>
+    /// この<see cref="View"/> は<see cref="MainViewModel"/> とバインドします。
+    /// </remarks>
     [ViewModel(typeof(MainViewModel))]
     public partial class MainView : View
     {
         #region Ctor
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public MainView()
         {
             InitializeComponent();
@@ -30,12 +36,7 @@
             TaskbarIcon.Dispose();
             base.OnClosing(e);
         }
-
-        private void MainView_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
+        
         #endregion
     }
 }

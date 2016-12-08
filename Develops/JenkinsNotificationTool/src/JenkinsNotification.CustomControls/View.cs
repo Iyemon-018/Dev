@@ -5,20 +5,33 @@
     using Microsoft.Practices.Prism.Mvvm;
 
     /// <summary>
-    /// 
+    /// このアプリケーション専用のView コンポーネントクラスです。
     /// </summary>
-    /// <seealso cref="Microsoft.Practices.Prism.Mvvm.IView" />
-    /// <seealso cref="System.Windows.Window" />
+    /// <seealso cref="IView" />
+    /// <seealso cref="Window" />
     public class View : Window, IView
     {
+        #region Ctor
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         static View()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(View), new FrameworkPropertyMetadata(typeof(View)));
         }
 
-        public View()
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        protected View()
         {
-            ViewUtility.InjectionViewModelLocator(this);
+            //
+            // ViewModel インジェクション機能を有効化する。
+            //
+            ViewUtility.InjectionViewModelLocater(this);
         }
+
+        #endregion
     }
 }

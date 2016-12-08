@@ -12,7 +12,6 @@
     Height="300"
     d:DataContext="{d:DesignInstance {x:Type viewModels:MainViewModel},
                                      IsDesignTimeCreatable=True}"
-    Loaded="MainView_OnLoaded"
     ShowInTaskbar="False"
     Visibility="Hidden"
     WindowState="Minimized"

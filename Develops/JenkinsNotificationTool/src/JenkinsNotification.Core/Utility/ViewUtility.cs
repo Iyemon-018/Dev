@@ -47,7 +47,11 @@
             return DesignerProperties.GetIsInDesignMode(new DependencyObject());
         }
 
-        public static void InjectionViewModelLocator(DependencyObject view)
+        /// <summary>
+        /// View 生成時にViewModel を自動生成するインジェクション機能をONにします。
+        /// </summary>
+        /// <param name="view">インジェクションの対象になる依存関係オブジェクト</param>
+        public static void InjectionViewModelLocater(DependencyObject view)
         {
             ViewModelLocator.SetAutoWireViewModel(view, true);
         }

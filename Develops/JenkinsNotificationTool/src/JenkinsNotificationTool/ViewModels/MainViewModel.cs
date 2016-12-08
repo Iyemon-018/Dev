@@ -1,19 +1,29 @@
 ﻿namespace JenkinsNotificationTool.ViewModels
 {
-    using System.Windows;
     using JenkinsNotification.Core.ComponentModels;
     using JenkinsNotification.Core.Services;
-    using JenkinsNotification.CustomControls.Services;
     using Microsoft.Practices.Prism.Commands;
 
+    /// <summary>
+    /// タスクトレイに格納されるメイン画面のViewModel クラスです。
+    /// </summary>
+    /// <seealso cref="ApplicationViewModelBase" />
     public class MainViewModel : ApplicationViewModelBase
     {
+        #region Ctor
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public MainViewModel()
             : this(null)
         {
-
         }
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="injectionService">インジェクション サービス</param>
         public MainViewModel(IInjectionService injectionService) : base(injectionService)
         {
             //
@@ -44,12 +54,27 @@
                                                      });
         }
 
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// アプリケーション終了コマンドを設定、取得します。
+        /// </summary>
         public DelegateCommand ExitCommand { get; private set; }
 
+        /// <summary>
+        /// 設定画面表示コマンドを設定、取得します。
+        /// </summary>
         public DelegateCommand ConfigurationCommand { get; private set; }
 
+        /// <summary>
+        /// 通知受信履歴一覧表示コマンドを設定、取得します。
+        /// </summary>
         public DelegateCommand ReceivedNotificationListCommand { get; private set; }
 
         public DelegateCommand ShowBalloonCommand { get; private set; }
+
+        #endregion
     }
 }
