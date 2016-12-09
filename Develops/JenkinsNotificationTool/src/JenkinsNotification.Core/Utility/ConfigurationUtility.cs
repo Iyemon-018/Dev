@@ -2,6 +2,7 @@
 {
     using Configurations.Verify;
     using Extensions;
+    using JenkinsNotification.Core.Properties;
 
     /// <summary>
     /// 構成ファイルに関するユーティリティ機能クラスです。
@@ -24,7 +25,7 @@
             var result = verify.Verify(config);
             if (!result.Correct)
             {
-                throw new ConfigurationVerifyException("読み込み後の構成ファイル検証が異常でした。", filePath, result);
+                throw new ConfigurationVerifyException(Resources.ConfigurationVerifyLoadedErrorMessage, filePath, result);
             }
 
             return config;
@@ -43,7 +44,7 @@
             var result = verify.Verify(config);
             if (!result.Correct)
             {
-                throw new ConfigurationVerifyException("保存時の構成ファイル検証が異常でした。", filePath, result);
+                throw new ConfigurationVerifyException(Resources.ConfigurationVerifySaveErrorMessage, filePath, result);
             }
             config.Serialize(filePath);
         }

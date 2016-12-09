@@ -133,7 +133,7 @@
     <Compile Include="ViewModels\Api\IJobExecuteResult.cs" />
     <Compile Include="ViewModels\Api\JobExecuteResultViewModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />

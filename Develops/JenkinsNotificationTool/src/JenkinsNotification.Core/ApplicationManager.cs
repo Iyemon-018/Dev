@@ -9,6 +9,7 @@
     using System.Windows;
     using JenkinsNotification.Core.ComponentModels;
     using JenkinsNotification.Core.Configurations;
+    using JenkinsNotification.Core.Properties;
     using JenkinsNotification.Core.Services;
     using Microsoft.Practices.Prism.Mvvm;
 
@@ -65,7 +66,7 @@
         /// バルーン表示サービスを取得します。
         /// </summary>
         public IBalloonTipService BalloonTipService => _balloonTipService;
-
+        
         #endregion
 
         #region Methods

@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using JenkinsNotification.Core.Properties;
 
     /// <summary>
     /// Xml デシリアライズ拡張メソッドクラスです。
@@ -22,7 +23,7 @@
         {
             if (filePath.IsEmpty() || !File.Exists(filePath))
             {
-                throw new FileNotFoundException("指定したファイルは存在しません。", filePath);
+                throw new FileNotFoundException(Resources.FileNotFoundMessage, filePath);
             }
 
             T result = null;

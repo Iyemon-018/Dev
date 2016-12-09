@@ -1,10 +1,7 @@
 ﻿namespace JenkinsNotification.Core.Configurations.Verify
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Linq;
-    using System.Threading.Tasks;
+    using Properties;
 
     /// <summary>
     /// 構成情報<see cref="NotifyConfiguration"/> の検証ロジック クラスです。
@@ -44,7 +41,9 @@
             var displayHistoryCount = config.DisplayHistoryCount;
             if ((displayHistoryCount < DisplayHistoryMinimum) || (DisplayHistoryMaximum < config.DisplayHistoryCount))
             {
-                return VerifyResult.Error($"DisplayHistoryCount には、{DisplayHistoryMinimum}～{DisplayHistoryMaximum} を設定してください。");
+                return VerifyResult.Error(string.Format(Resources.DisplayHistoryCountOutOfRangeMessage,
+                                                         DisplayHistoryMinimum,
+                                                         DisplayHistoryMaximum));
             }
             
             // 全ての検証が正常に終了した。
