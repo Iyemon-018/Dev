@@ -11,16 +11,27 @@
     using Microsoft.Practices.Prism.Mvvm;
 
     /// <summary>
-    /// 
+    /// 全てのViewModel 基底オブジェクト クラスです。
     /// </summary>
     /// <seealso cref="BindableBase" />
     /// <seealso cref="INotifyDataErrorInfo" />
     public abstract class ViewModelBase : BindableBase, INotifyDataErrorInfo
     {
+        #region Fields
+
         /// <summary>
         /// エラー情報を保持するコンテナ
         /// </summary>
         private readonly ErrorsContainerCustom<string> _errorsContainer;
+
+        /// <summary>
+        /// <see cref="_errorsContainer"/> の非同期ロックオブジェクト
+        /// </summary>
+        private readonly object _validationLock = new object();
+
+        #endregion
+
+        #region Ctor
 
         /// <summary>
         /// コンストラクタ
@@ -30,43 +41,104 @@
             _errorsContainer = new ErrorsContainerCustom<string>(OnErrorChanged);
         }
 
-        /// <summary>
-        /// <see cref="ErrorsChanged"/>イベントを呼び出します。
-        /// </summary>
-        /// <param name="propertyName">プロパティ名</param>
-        private void OnErrorChanged([CallerMemberName] string propertyName = null)
-        {
-            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
-        }
-
-        #region INotifyDataErrorInfo メンバーの実装
-
-        /// <summary>
-        /// 指定されたプロパティまたはエンティティ全体の検証エラーを取得します。
-        /// </summary>
-        /// <param name="propertyName">検証エラーを取得するプロパティの名前。または、エンティティ レベルのエラーを取得する場合は null または <see cref="F:System.String.Empty" />。</param>
-        /// <returns>プロパティまたはエンティティの検証エラー。</returns>
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return _errorsContainer.GetErrors(propertyName);
-        }
-
-        /// <summary>
-        /// エンティティに検証エラーがあるかどうかを示す値を取得します。
-        /// </summary>
-        public bool HasErrors => _errorsContainer.HasErrors;
-
-        /// <summary>
-        /// プロパティまたはエンティティ全体の検証エラーが変更されたときに発生します。
-        /// </summary>
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
-
         #endregion
 
+        #region Methods
+
         /// <summary>
-        /// <see cref="_errorsContainer"/> の非同期ロックオブジェクト
+        /// このインスタンスの検証を行います。
         /// </summary>
-        private readonly object _validationLock = new object();
+        public void Validate()
+        {
+            lock (_validationLock)
+            {
+                var context = new ValidationContext(this, null, null);
+                var validationResults = new List<ValidationResult>();
+
+                //
+                // プロパティを検証する。
+                // 検証結果はvalidationErrors に格納される。
+                //
+                var validate = Validator.TryValidateObject(this, context, validationResults);
+
+                // まとめて検証結果をクリアする。
+                _errorsContainer.ClearAll();
+
+                if (!validate)
+                {
+                    //
+                    // グループごとの検証結果を生成する。
+                    // Key:プロパティ名, Value:Key プロパティの検証結果コレクション
+                    // 検証結果をコンテナに登録する。
+                    //
+                    var byPropertyNames = from result in validationResults
+                                          from memberName in result.MemberNames
+                                          group result by memberName
+                                          into g
+                                          select g;
+                    foreach (var property in byPropertyNames)
+                    {
+                        _errorsContainer.SetErrors(property.Key, property.Select(x => x.ErrorMessage));
+                    }
+                }
+
+                //
+                // 派生先で独自の検証ロジックを実行する。
+                //
+                OnValidate();
+            }
+        }
+
+        /// <summary>
+        /// リスナーにプロパティのエラーを通知します。
+        /// </summary>
+        /// <typeparam name="TProperty">プロパティを通知するインスタンスの型</typeparam>
+        /// <param name="propertyExpression">プロパティを識別する式木</param>
+        /// <param name="message">通知するエラーメッセージ</param>
+        protected void NotificationError<TProperty>(Expression<Func<TProperty>> propertyExpression, string message)
+        {
+            _errorsContainer.SetError(propertyExpression, message);
+        }
+
+        /// <summary>
+        /// リスナーにプロパティのエラーを通知します。
+        /// </summary>
+        /// <param name="propertyName">プロパティ名</param>
+        /// <param name="message">通知するエラーメッセージ</param>
+        protected void NotificationError(string propertyName, string message)
+        {
+            _errorsContainer.SetError(propertyName, message);
+        }
+
+        /// <summary>
+        /// リスナーにプロパティのエラーを通知します。
+        /// </summary>
+        /// <typeparam name="TProperty">プロパティを通知するインスタンスの型</typeparam>
+        /// <param name="propertyExpression">プロパティを識別する式木</param>
+        /// <param name="messages">通知するエラーメッセージ</param>
+        protected void NotificationErrors<TProperty>(Expression<Func<TProperty>> propertyExpression, IEnumerable<string> messages)
+        {
+            _errorsContainer.SetErrors(propertyExpression, messages);
+        }
+
+        /// <summary>
+        /// リスナーにプロパティのエラーを通知します。
+        /// </summary>
+        /// <param name="propertyName">プロパティ名</param>
+        /// <param name="messages">通知するエラーメッセージ</param>
+        protected void NotificationErrors(string propertyName, IEnumerable<string> messages)
+        {
+            _errorsContainer.SetErrors(propertyName, messages);
+        }
+
+        /// <summary>
+        /// このインスタンスの検証を実行します。<para/>
+        /// 属性による検証以外で必要な検証はここで行います。
+        /// </summary>
+        protected virtual void OnValidate()
+        {
+            // Do nothing this class.
+        }
 
         /// <summary>
         /// プロパティが目的の値に一致するかどうかを判定します。<para/>
@@ -129,98 +201,38 @@
         }
 
         /// <summary>
-        /// このインスタンスの検証を行います。
-        /// </summary>
-        public void Validate()
-        {
-            lock (_validationLock)
-            {
-                var context = new ValidationContext(this, null, null);
-                var validationResults = new List<ValidationResult>();
-
-                //
-                // プロパティを検証する。
-                // 検証結果はvalidationErrors に格納される。
-                //
-                var validate = Validator.TryValidateObject(this, context, validationResults);
-
-                // まとめて検証結果をクリアする。
-                _errorsContainer.ClearAll();
-
-                if (!validate)
-                {
-                    //
-                    // グループごとの検証結果を生成する。
-                    // Key:プロパティ名, Value:Key プロパティの検証結果コレクション
-                    // 検証結果をコンテナに登録する。
-                    //
-                    var byPropertyNames = from result in validationResults
-                                          from memberName in result.MemberNames
-                                          group result by memberName
-                                          into g
-                                          select g;
-                    foreach (var property in byPropertyNames)
-                    {
-                        _errorsContainer.SetErrors(property.Key, property.Select(x => x.ErrorMessage));
-                    }
-                }
-
-                //
-                // 派生先で独自の検証ロジックを実行する。
-                //
-                OnValidate();
-            }
-        }
-
-        /// <summary>
-        /// このインスタンスの検証を実行します。<para/>
-        /// 属性による検証以外で必要な検証はここで行います。
-        /// </summary>
-        protected virtual void OnValidate()
-        {
-            // Do nothing this class.
-        }
-
-        /// <summary>
-        /// リスナーにプロパティのエラーを通知します。
-        /// </summary>
-        /// <typeparam name="TProperty">プロパティを通知するインスタンスの型</typeparam>
-        /// <param name="propertyExpression">プロパティを識別する式木</param>
-        /// <param name="message">通知するエラーメッセージ</param>
-        protected void NotificationError<TProperty>(Expression<Func<TProperty>> propertyExpression, string message)
-        {
-            _errorsContainer.SetError(propertyExpression, message);
-        }
-
-        /// <summary>
-        /// リスナーにプロパティのエラーを通知します。
+        /// <see cref="ErrorsChanged"/>イベントを呼び出します。
         /// </summary>
         /// <param name="propertyName">プロパティ名</param>
-        /// <param name="message">通知するエラーメッセージ</param>
-        protected void NotificationError(string propertyName, string message)
+        private void OnErrorChanged([CallerMemberName] string propertyName = null)
         {
-            _errorsContainer.SetError(propertyName, message);
+            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        }
+
+        #endregion
+
+        #region INotifyDataErrorInfo メンバーの実装
+
+        /// <summary>
+        /// 指定されたプロパティまたはエンティティ全体の検証エラーを取得します。
+        /// </summary>
+        /// <param name="propertyName">検証エラーを取得するプロパティの名前。または、エンティティ レベルのエラーを取得する場合は null または <see cref="F:System.String.Empty" />。</param>
+        /// <returns>プロパティまたはエンティティの検証エラー。</returns>
+        public IEnumerable GetErrors(string propertyName)
+        {
+            return _errorsContainer.GetErrors(propertyName);
         }
 
         /// <summary>
-        /// リスナーにプロパティのエラーを通知します。
+        /// エンティティに検証エラーがあるかどうかを示す値を取得します。
         /// </summary>
-        /// <typeparam name="TProperty">プロパティを通知するインスタンスの型</typeparam>
-        /// <param name="propertyExpression">プロパティを識別する式木</param>
-        /// <param name="messages">通知するエラーメッセージ</param>
-        protected void NotificationErrors<TProperty>(Expression<Func<TProperty>> propertyExpression, IEnumerable<string> messages)
-        {
-            _errorsContainer.SetErrors(propertyExpression, messages);
-        }
+        public bool HasErrors => _errorsContainer.HasErrors;
 
         /// <summary>
-        /// リスナーにプロパティのエラーを通知します。
+        /// プロパティまたはエンティティ全体の検証エラーが変更されたときに発生します。
         /// </summary>
-        /// <param name="propertyName">プロパティ名</param>
-        /// <param name="messages">通知するエラーメッセージ</param>
-        protected void NotificationErrors(string propertyName, IEnumerable<string> messages)
-        {
-            _errorsContainer.SetErrors(propertyName, messages);
-        }
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+
+        #endregion
     }
 }
