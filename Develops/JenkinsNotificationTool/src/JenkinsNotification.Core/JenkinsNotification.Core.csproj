@@ -129,6 +129,7 @@
     <Compile Include="Utility\FileUtility.cs" />
     <Compile Include="Utility\PathUtility.cs" />
     <Compile Include="Utility\Products.cs" />
+    <Compile Include="Utility\ViewModelUtility.cs" />
     <Compile Include="Utility\ViewUtility.cs" />
     <Compile Include="ViewModels\Api\IJobExecuteResult.cs" />
     <Compile Include="ViewModels\Api\JobExecuteResultViewModel.cs" />

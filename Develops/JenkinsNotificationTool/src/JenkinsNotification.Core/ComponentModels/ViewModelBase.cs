@@ -152,7 +152,7 @@
         /// この値はオプションで、<see cref="CallerMemberNameAttribute"/> をサポートするコンパイラから呼び出されたときに自動的に提供されます。
         /// </param>
         /// <returns>値が変更されたときはtrue, 既存の値が目的の値と同じ場合はfalse を返します。</returns>
-        protected override bool SetProperty<T>(ref T storage, T value, string propertyName = null)
+        protected override bool SetProperty<T>(ref T storage, T value,[CallerMemberName] string propertyName = null)
         {
             var changed = base.SetProperty(ref storage, value, propertyName);
             if (changed)
