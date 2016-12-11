@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
@@ -32,6 +33,15 @@
 
         #region Methods
 
+        /// <summary>
+        /// <see cref="ViewModelBase.NotificationError{TProperty}"/> メソッドを試験します。
+        /// </summary>
+        /// <remarks>
+        /// 以下の内容をテストします。
+        /// ・以下の手順で検証エラーが発生すること。
+        /// １．検証エラーとならない値を設定する。
+        /// ２．検証を実施して
+        /// </remarks>
         [Fact]
         public void Tests_NotificationError()
         {
@@ -132,6 +142,40 @@
         }
 
         /// <summary>
+        /// <see cref="ViewModelBase"/> オブジェクトプロパティの検証をテストします。
+        /// </summary>
+        /// <remarks>
+        /// 以下の内容をテストします。
+        /// ・ViewModelBase型プロパティを検証してエラーが発生した場合、その親クラスで検証エラーを取得できるかどうか。
+        /// </remarks>
+        [Fact]
+        public void Tests_Validate_SubViewModel()
+        {
+            // arrange
+            var target = new MockViewModel
+                         {
+                             FirstName = "Test",
+                             LastName = "Mock",
+                             DayOfWeek = DayOfWeek.Saturday,
+                         };
+            // この時点ではエラーはない。
+            Assert.False(target.HasErrors);
+            target.SubViewModel.Number = MockSubViewModel.NumberMinimum - 1;
+
+            // act
+            target.Validate();
+
+            // assert
+            // 子ViewModelのエラー結果を検証する。
+            Assert.True(target.SubViewModel.HasErrors);
+            // 親ViewModelが子ViewModelのエラー結果を保持する。
+            Assert.True(target.HasErrors);
+
+            ConsoleWriteErrorMessages(target.SubViewModel);
+            ConsoleWriteErrorMessages(target);
+        }
+
+        /// <summary>
         /// 指定したViewModelオブジェクトの持つエラー情報をすべてコンソールに出力します。
         /// </summary>
         /// <param name="viewModel">コンソールに出力するViewModelオブジェクト</param>
@@ -144,7 +188,7 @@
                 {
                     foreach (var error in viewModel.GetErrors(property.Name))
                     {
-                        Output.WriteLine(error.ToString());
+                        Output.WriteLine($"{viewModel.GetType().Name}.{property.Name} - {error}");
                     }
                 }
             }
@@ -208,13 +252,25 @@
 
             #endregion
 
+            /// <summary>
+            /// コンストラクタ
+            /// </summary>
+            public MockViewModel()
+            {
+                SubViewModel = new MockSubViewModel();
+                SubViewModels = new ObservableCollection<MockSubViewModel>();
+
+                AddChild(SubViewModel);
+                AddChildren(SubViewModels);
+            }
+
             #region Properties
 
             /// <summary>
             /// 年齢を設定、または取得します。
             /// </summary>
             [Display(Name = "年齢")]
-            [Range(AgeMinimum, AgeMaximum, ErrorMessage = "{2}は{0}～{1}を入力してください。")]
+            [Range(AgeMinimum, AgeMaximum, ErrorMessage = "{0}は{1}～{2}を入力してください。")]
             public int Age
             {
                 get { return _age; }
@@ -226,7 +282,7 @@
             /// </summary>
             [Display(Name = "名字")]
             [Required(AllowEmptyStrings = false, ErrorMessage = "{0}は必ず入力してください。")]
-            [MaxLength(LastNameMaxLength, ErrorMessage = "{1}は{0}文字以上入力できません。")]
+            [MaxLength(LastNameMaxLength, ErrorMessage = "{0}は{1}文字以上入力できません。")]
             public string LastName
             {
                 get { return _lastName; }
@@ -238,7 +294,7 @@
             /// </summary>
             [Display(Name = "名前")]
             [Required(AllowEmptyStrings = false, ErrorMessage = "{0}は必ず入力してください。")]
-            [MaxLength(FirstNameMaxLength, ErrorMessage = "{1}は{0}文字以上入力できません。")]
+            [MaxLength(FirstNameMaxLength, ErrorMessage = "{0}は{1}文字以上入力できません。")]
             public string FirstName
             {
                 get { return _firstName; }
@@ -253,6 +309,25 @@
                 get { return _dayOfWeek; }
                 set { SetProperty(ref _dayOfWeek, value); }
             }
+
+            /// <summary>
+            /// ViewModel型のオブジェクト
+            /// </summary>
+            private MockSubViewModel _subViewModel;
+
+            /// <summary>
+            /// ViewModel型のオブジェクトを設定、または取得します。
+            /// </summary>
+            public MockSubViewModel SubViewModel
+            {
+                get { return _subViewModel; }
+                set { SetProperty(ref _subViewModel, value); }
+            }
+            
+            /// <summary>
+            /// <see cref="ViewModelBase"/> 型のコレクションオブジェクトを取得します。
+            /// </summary>
+            public ObservableCollection<MockSubViewModel> SubViewModels { get; private set; }
 
             #endregion
 
@@ -270,9 +345,89 @@
                 {
                     NotificationError(() => DayOfWeek, $"曜日には{DayOfWeek.Monday}は設定できません。");
                 }
+
+                SubViewModel.Validate();
             }
 
             #endregion
+        }
+
+        private enum FromType
+        {
+            A,
+            B,
+        }
+
+        private enum ToType
+        {
+            C,
+            D,
+        }
+
+        private class MockSubViewModel : ViewModelBase
+        {
+            public const int NumberMinimum = 0;
+
+            public const int NumberMaximum = 10;
+
+            /// <summary>
+            /// No
+            /// </summary>
+            private int _number;
+
+            /// <summary>
+            /// Noを設定、または取得します。
+            /// </summary>
+            [Display(Name = "No")]
+            [Range(NumberMinimum, NumberMaximum, ErrorMessage = "{0}は{1}～{2}までの値を設定してください。")]
+            public int Number
+            {
+                get { return _number; }
+                set { SetProperty(ref _number, value); }
+            }
+
+            /// <summary>
+            /// From
+            /// </summary>
+            private FromType _from;
+
+            /// <summary>
+            /// Fromを設定、または取得します。
+            /// </summary>
+            public FromType From
+            {
+                get { return _from; }
+                set { SetProperty(ref _from, value); }
+            }
+
+            /// <summary>
+            /// To
+            /// </summary>
+            private ToType _to;
+
+            /// <summary>
+            /// Toを設定、または取得します。
+            /// </summary>
+            public ToType To
+            {
+                get { return _to; }
+                set { SetProperty(ref _to, value); }
+            }
+
+            /// <summary>
+            /// このインスタンスの検証を実行します。<para />
+            /// 属性による検証以外で必要な検証はここで行います。
+            /// </summary>
+            protected override void OnValidate()
+            {
+                base.OnValidate();
+
+                if (From == FromType.A && To == ToType.D)
+                {
+                    NotificationError(() => From, $"{nameof(From)} {nameof(To)} の組み合わせが正しくありません。");
+                    NotificationError(() => To, $"{nameof(From)} {nameof(To)} の組み合わせが正しくありません。");
+                }
+            }
         }
 
         #endregion

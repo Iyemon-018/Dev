@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace JenkinsNotification.CustomControls.Services
+﻿namespace JenkinsNotification.CustomControls.Services
 {
     using System.Windows;
-    using JenkinsNotification.Core.Services;
-    using JenkinsNotification.Core.Utility;
+    using Core.Services;
+    using Core.Utility;
 
     /// <summary>
     /// ダイアログ表示のサービス クラスです。

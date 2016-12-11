@@ -82,6 +82,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Core\Services\MockDialogService.cs" />
     <Compile Include="Extensions\ViewModelExtensions.cs" />
     <Compile Include="Core\ComponentModels\ViewModelTests.cs" />
     <Compile Include="TestBase.cs" />

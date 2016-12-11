@@ -32,10 +32,7 @@
         /// </summary>
         public void ClearAll()
         {
-            foreach (var propertyName in validationResults.Keys)
-            {
-                ClearErrors(propertyName);
-            }
+            validationResults.Clear();
         }
 
         /// <summary>

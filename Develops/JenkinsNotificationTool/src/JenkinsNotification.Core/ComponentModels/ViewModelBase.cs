@@ -7,6 +7,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Linq.Expressions;
+    using System.Reflection;
     using System.Runtime.CompilerServices;
     using Microsoft.Practices.Prism.Mvvm;
 
@@ -28,6 +29,11 @@
         /// <see cref="_errorsContainer"/> の非同期ロックオブジェクト
         /// </summary>
         private readonly object _validationLock = new object();
+
+        /// <summary>
+        /// このエンティティの子要素コレクション
+        /// </summary>
+        private readonly List<ViewModelBase> _children = new List<ViewModelBase>();
 
         #endregion
 
@@ -59,7 +65,7 @@
                 // プロパティを検証する。
                 // 検証結果はvalidationErrors に格納される。
                 //
-                var validate = Validator.TryValidateObject(this, context, validationResults);
+                var validate = Validator.TryValidateObject(this, context, validationResults, true);
 
                 // まとめて検証結果をクリアする。
                 _errorsContainer.ClearAll();
@@ -211,6 +217,24 @@
 
         #endregion
 
+        /// <summary>
+        /// エンティティの子要素を追加します。
+        /// </summary>
+        /// <param name="child"><see cref="ViewModelBase"/> オブジェクトの子要素</param>
+        protected void AddChild(ViewModelBase child)
+        {
+            _children.Add(child);
+        }
+
+        /// <summary>
+        /// エンティティの子要素コレクションを追加します。
+        /// </summary>
+        /// <param name="children"><see cref="ViewModelBase"/> オブジェクトの子要素コレクション</param>
+        protected void AddChildren(IEnumerable<ViewModelBase> children)
+        {
+            _children.AddRange(children);
+        }
+
         #region INotifyDataErrorInfo メンバーの実装
 
         /// <summary>
@@ -224,9 +248,10 @@
         }
 
         /// <summary>
-        /// エンティティに検証エラーがあるかどうかを示す値を取得します。
+        /// エンティティに検証エラーがあるかどうかを示す値を取得します。<para/>
+        /// この<see cref="ViewModelBase"/> の子要素に検証エラーがある場合でもtrueを返します。
         /// </summary>
-        public bool HasErrors => _errorsContainer.HasErrors;
+        public bool HasErrors => _errorsContainer.HasErrors || _children.Any(x => x.HasErrors);
 
         /// <summary>
         /// プロパティまたはエンティティ全体の検証エラーが変更されたときに発生します。
