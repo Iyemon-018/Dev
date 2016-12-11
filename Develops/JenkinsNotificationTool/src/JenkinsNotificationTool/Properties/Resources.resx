@@ -117,4 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DispatcherUnhandledExceptionMessage" xml:space="preserve">
+    <value>予期せぬエラーをキャッチしました。</value>
+    <comment>DispatcherUnhandledException イベントで補足した場合の例外メッセージです。</comment>
+  </data>
+  <data name="ExitConfirmMessage" xml:space="preserve">
+    <value>アプリケーションを終了します。よろしいですか？</value>
+    <comment>アプリケーション終了確認メッセージです。</comment>
+  </data>
+  <data name="FirstChanceExceptionMessage" xml:space="preserve">
+    <value>共通の例外補足イベントハンドラで例外を補足しました。</value>
+    <comment>FirstChanceException イベントで補足した場合の例外メッセージです。</comment>
+  </data>
+  <data name="UnhandledExceptionMessage" xml:space="preserve">
+    <value>予期せぬエラーをキャッチしました。</value>
+    <comment>UnhandledException イベントで補足した場合の例外メッセージです。</comment>
+  </data>
+  <data name="UnhandledExceptionShowMessage" xml:space="preserve">
+    <value>予期せぬエラーをキャッチしました。システム管理者に問い合わせてください。</value>
+    <comment>補足されなかった例外をキャッチした場合にユーザーに表示するメッセージです。</comment>
+  </data>
 </root>

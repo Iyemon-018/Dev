@@ -1,9 +1,12 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:JenkinsNotification.CustomControls"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core.Properties="clr-namespace:JenkinsNotification.Core.Properties;assembly=JenkinsNotification.Core"
+    xmlns:local="clr-namespace:JenkinsNotification.CustomControls"
+    xmlns:local.Properties="clr-namespace:JenkinsNotification.CustomControls.Properties"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Themes/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/JenkinsNotification.CustomControls;component/Themes/Color.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <!--
         ここにはこのプロジェクトで追加した独自コンポーネントのstyleやTemplateを定義します。
@@ -13,6 +16,11 @@
     <!--  #Region TODO  -->
     <!--  #End Region TODO  -->
 
+
+    <!--  #Region このアプリケーションで使用する文言などのリソース定義  -->
+    <core.Properties:Resources x:Key="Core.Resources" />
+    <local.Properties:Resources x:Key="CustomControls.Resources" />
+    <!--  #End Region このアプリケーションで使用する文言などのリソース定義  -->
 
     <!--  #Region アプリケーション全体で使用するConverter定義  -->
 

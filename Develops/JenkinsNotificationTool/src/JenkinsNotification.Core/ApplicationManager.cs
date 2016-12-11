@@ -24,7 +24,7 @@
     /// 循環参照のような連鎖を回避するため、まず<see cref="SetDefaultViewModelLocater"/> メソッドで
     /// インジェクションサービスを設定しておき、<see cref="Initialize"/> メソッドで当クラスのインスタンス化を行います。<para/>
     /// よって、<see cref="IBalloonTipService"/> は当クラスだけインスタンスを持っています。<para/>
-    /// <see cref="IInjectionService"/> に<see cref="IBalloonTipService"/> が存在しないのはこのためです。<para/>
+    /// <see cref="IServicesProvider"/> に<see cref="IBalloonTipService"/> が存在しないのはこのためです。<para/>
     /// </remarks>
     public sealed class ApplicationManager
     {
@@ -92,14 +92,14 @@
         /// ViewModel の生成ルールを設定します。<para/>
         /// このメソッドは最初のView を生成する前に実行してください。
         /// </summary>
-        /// <param name="injectionService">インジェクション サービス</param>
-        public static void SetDefaultViewModelLocater(IInjectionService injectionService)
+        /// <param name="servicesProvider">インジェクション サービス</param>
+        public static void SetDefaultViewModelLocater(IServicesProvider servicesProvider)
         {
             //
             // ViewModel を生成する場合、コンストラクタの引数にインジェクション サービスを設定する。
             //
             ViewModelLocationProvider.SetDefaultViewModelFactory(
-                viewModelType => Activator.CreateInstance(viewModelType, injectionService));
+                viewModelType => Activator.CreateInstance(viewModelType, servicesProvider));
 
             //
             // View に設定したViewModel 属性の型によってView とViewModel を紐付けます。

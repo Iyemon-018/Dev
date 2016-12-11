@@ -1,9 +1,9 @@
 ﻿namespace JenkinsNotification.Core.Services
 {
     /// <summary>
-    /// 各種サービスのインジェクション サービス インターフェースです。
+    /// 各種サービスを提供するインターフェースです。
     /// </summary>
-    public interface IInjectionService
+    public interface IServicesProvider
     {
         /// <summary>
         /// ダイアログ表示サービスを取得します。

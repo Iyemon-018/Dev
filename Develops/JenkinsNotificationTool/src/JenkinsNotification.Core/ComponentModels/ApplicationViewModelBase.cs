@@ -19,7 +19,7 @@
         /// <summary>
         /// インジェクション サービス
         /// </summary>
-        private readonly IInjectionService _injectionService;
+        private readonly IServicesProvider _servicesProvider;
 
         #endregion
 
@@ -28,19 +28,19 @@
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        /// <param name="injectionService">インジェクション サービス</param>
-        protected ApplicationViewModelBase(IInjectionService injectionService)
+        /// <param name="servicesProvider">インジェクション サービス</param>
+        protected ApplicationViewModelBase(IServicesProvider servicesProvider)
         {
             //
             // デザイナー上でViewModelをバインドするために
             // デザインモード時は常にViewModel をインスタンス化できるようにする。
             //
             if (ViewUtility.IsDesignMode()) return;
-            if (injectionService == null) throw new ArgumentNullException(nameof(injectionService));
+            if (servicesProvider == null) throw new ArgumentNullException(nameof(servicesProvider));
 
-            _injectionService = injectionService;
-            DialogService     = _injectionService.DialogService;
-            ViewService       = _injectionService.ViewService;
+            _servicesProvider = servicesProvider;
+            DialogService     = _servicesProvider.DialogService;
+            ViewService       = _servicesProvider.ViewService;
         }
 
         #endregion

@@ -101,10 +101,12 @@
     <Compile Include="Configurations\Verify\NotifyConfigurationVerify.cs" />
     <Compile Include="Configurations\Verify\VerifyResult.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\XmlDeserializer.cs" />
     <Compile Include="Extensions\XmlSerializer.cs" />
     <Compile Include="Jenkins\Api\JobExecuteResult.cs" />
+    <Compile Include="Logs\LogManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -118,11 +120,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\IBalloonTipService.cs" />
     <Compile Include="Services\IDialogService.cs" />
-    <Compile Include="Services\IInjectionService.cs" />
-    <Compile Include="Services\InjectionService.cs" />
+    <Compile Include="Services\IServicesProvider.cs" />
+    <Compile Include="Services\ServicesProvider.cs" />
     <Compile Include="Services\IViewService.cs" />
     <Compile Include="Services\ViewService.cs" />
     <Compile Include="Utility\ConfigurationUtility.cs" />

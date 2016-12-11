@@ -1,10 +1,12 @@
 ﻿namespace JenkinsNotification.Core.Services
 {
+    using System;
+
     /// <summary>
-    /// 各種サービスのインジェクション サービス クラスです。
+    /// 各種サービスを提供するクラスです。
     /// </summary>
-    /// <seealso cref="IInjectionService" />
-    public class InjectionService : IInjectionService
+    /// <seealso cref="IServicesProvider" />
+    public class ServicesProvider : IServicesProvider
     {
         #region Fields
 
@@ -25,10 +27,15 @@
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public InjectionService()
+        /// <param name="dialogService">ダイアログ表示サービス</param>
+        /// <param name="viewService">画面表示サービス</param>
+        public ServicesProvider(IDialogService dialogService, IViewService viewService)
         {
-            _dialogService = new DialogService();
-            _viewService   = new ViewService();
+            if (dialogService == null) throw new ArgumentNullException(nameof(dialogService));
+            if (viewService == null) throw new ArgumentNullException(nameof(viewService));
+
+            _dialogService = dialogService;
+            _viewService   = viewService;
         }
 
         #endregion

@@ -2,6 +2,7 @@
 {
     using JenkinsNotification.Core.ComponentModels;
     using JenkinsNotification.Core.Services;
+    using JenkinsNotificationTool.Properties;
     using Microsoft.Practices.Prism.Commands;
 
     /// <summary>
@@ -23,8 +24,8 @@
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        /// <param name="injectionService">インジェクション サービス</param>
-        public MainViewModel(IInjectionService injectionService) : base(injectionService)
+        /// <param name="servicesProvider">インジェクション サービス</param>
+        public MainViewModel(IServicesProvider servicesProvider) : base(servicesProvider)
         {
             //
             // 各コマンドの初期化を行う。
@@ -35,7 +36,14 @@
             // コンテキストメニューからメッセージボックスを表示すると即時クローズされてしまうので
             // メッセージ無しで終了する。
             //
-            ExitCommand = new DelegateCommand(() => ApplicationManager.Shutdown());
+            ExitCommand = new DelegateCommand(() =>
+                                              {
+                                                  var shutDown = DialogService.ShowQuestion(Resources.ExitConfirmMessage);
+                                                  if (shutDown)
+                                                  {
+                                                      ApplicationManager.Shutdown();
+                                                  }
+                                              });
 
             ConfigurationCommand = new DelegateCommand(() =>
                                                        {

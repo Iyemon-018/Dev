@@ -29,7 +29,7 @@ namespace JenkinsNotificationTool.Properties {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        public Resources() {
         }
         
         /// <summary>
@@ -57,6 +57,51 @@ namespace JenkinsNotificationTool.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   予期せぬエラーをキャッチしました。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DispatcherUnhandledExceptionMessage {
+            get {
+                return ResourceManager.GetString("DispatcherUnhandledExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   アプリケーションを終了します。よろしいですか？ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ExitConfirmMessage {
+            get {
+                return ResourceManager.GetString("ExitConfirmMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   共通の例外補足イベントハンドラで例外を補足しました。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string FirstChanceExceptionMessage {
+            get {
+                return ResourceManager.GetString("FirstChanceExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   予期せぬエラーをキャッチしました。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string UnhandledExceptionMessage {
+            get {
+                return ResourceManager.GetString("UnhandledExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   予期せぬエラーをキャッチしました。システム管理者に問い合わせてください。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string UnhandledExceptionShowMessage {
+            get {
+                return ResourceManager.GetString("UnhandledExceptionShowMessage", resourceCulture);
             }
         }
     }

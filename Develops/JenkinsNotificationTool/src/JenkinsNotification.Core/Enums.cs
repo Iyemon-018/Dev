@@ -52,4 +52,40 @@
         /// </summary>
         Success,
     }
+
+    /// <summary>
+    /// ログの出力レベルを定義します。
+    /// </summary>
+    public enum LogLevel
+    {
+        /// <summary>
+        /// トレースログを表します。
+        /// </summary>
+        Trace,
+
+        /// <summary>
+        /// デバッグログを表します。
+        /// </summary>
+        Debug,
+
+        /// <summary>
+        /// 情報ログを表します。
+        /// </summary>
+        Information,
+
+        /// <summary>
+        /// 警告ログを表します。
+        /// </summary>
+        Warning,
+
+        /// <summary>
+        /// エラーログを表します。
+        /// </summary>
+        Error,
+
+        /// <summary>
+        /// 深刻なエラーログを表します。
+        /// </summary>
+        Fatal,
+    }
 }

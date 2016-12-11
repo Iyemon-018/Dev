@@ -1,7 +1,14 @@
-﻿namespace JenkinsNotification.Core.Services
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace JenkinsNotification.CustomControls.Services
 {
     using System.Windows;
-    using Utility;
+    using JenkinsNotification.Core.Services;
+    using JenkinsNotification.Core.Utility;
 
     /// <summary>
     /// ダイアログ表示のサービス クラスです。
@@ -14,63 +21,59 @@
         /// <summary>
         /// エラーダイアログを表示します。
         /// </summary>
-        /// <param name="title">タイトル</param>
         /// <param name="message">表示メッセージ</param>
         /// <remarks>[OK]ボタンのみ。エラー アイコンを表示するダイアログを表示します。</remarks>
-        public void ShowError(string title, string message)
+        public void ShowError(string message)
         {
-            Show(title, message, MessageBoxButton.OK, MessageBoxImage.Error);
+            Show(message, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         /// <summary>
         /// 情報ダイアログを表示します。
         /// </summary>
-        /// <param name="title">タイトル</param>
         /// <param name="message">表示メッセージ</param>
         /// <remarks>[OK]ボタンのみ。情報アイコンを表示するダイアログを表示します。</remarks>
-        public void ShowInformation(string title, string message)
+        public void ShowInformation(string message)
         {
-            Show(title, message, MessageBoxButton.OK, MessageBoxImage.Information);
+            Show(message, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         /// <summary>
         /// 質問ダイアログを表示します。
         /// </summary>
-        /// <param name="title">タイトル</param>
         /// <param name="message">表示メッセージ</param>
         /// <returns>true:[Yes]ボタンをクリック, false:[No]ボタンをクリック、もしくは[Esc]</returns>
         /// <remarks>[Yes], [No]ボタンを表示します。質問アイコンを表示するダイアログを表示します。</remarks>
-        public bool ShowQuestion(string title, string message)
+        public bool ShowQuestion(string message)
         {
-            return Show(title, message, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
+            return Show(message, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
         }
 
         /// <summary>
         /// 警告ダイアログを表示します。
         /// </summary>
-        /// <param name="title">タイトル</param>
         /// <param name="message">表示メッセージ</param>
         /// <returns>true:[Yes]ボタンをクリック, false:[No]ボタンをクリック、もしくは[Esc]</returns>
         /// <remarks>[Yes], [No]ボタンを表示します。警告アイコンを表示するダイアログを表示します。</remarks>
-        public bool ShowWarning(string title, string message)
+        public bool ShowWarning(string message)
         {
-            return Show(title, message, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes;
+            return Show(message, MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes;
         }
 
         /// <summary>
         /// メッセージボックスを表示します。
         /// </summary>
-        /// <param name="title">メッセージタイトル</param>
         /// <param name="message">メッセージテキスト</param>
         /// <param name="button">表示ボタン種別</param>
         /// <param name="icon">表示アイコン種別</param>
         /// <returns>メッセージボックス選択結果</returns>
-        private MessageBoxResult Show(string title, string message, MessageBoxButton button, MessageBoxImage icon)
+        private MessageBoxResult Show(string message, MessageBoxButton button, MessageBoxImage icon)
         {
+            var title = Products.Current.Title;
             var owner = ViewUtility.GetActiveWindow();
             return owner == null
-                ? MessageBox.Show(message, title, button, icon)
-                : MessageBox.Show(owner, message, title, button, icon);
+                ? MessageDialog.Show(message, title, button, icon)
+                : MessageDialog.Show(owner, message, title, button, icon);
         }
 
         #endregion

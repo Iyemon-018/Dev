@@ -14,11 +14,32 @@
 
     <!--  #Region 独自コンポーネントの色リソース定義  -->
 
+    <!--  #Region MessageDialog関連  -->
+
+    <!--  MessageDialog の背景色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Main.Background" Color="#FFE8E8E8" />
+    <!--  MessageDialog の前景色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Main.Foreground" Color="Black" />
+    <!--  MessageDialog の枠線色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Main.BorderBrush" Color="DodgerBlue" />
+    <!--  MessageDialog のキャプションエリアの背景色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Caption.Background" Color="DodgerBlue" />
+    <!--  MessageDialog のキャプションエリアの前景色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Caption.Foreground" Color="GhostWhite" />
+    <!--  MessageDialog のセパレータの背景色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Separator.Background" Color="DarkGray" />
+
+    <!--  #End Region MessageDialog関連  -->
+
+    <!--  #Region View関連  -->
+
     <!--  View の背景色に使用します。  -->
     <SolidColorBrush x:Key="View.Main.Background" Color="#FFE8E8E8" />
 
     <!--  View の前景色に使用します。  -->
     <SolidColorBrush x:Key="View.Main.Foreground" Color="Black" />
+
+    <!--  #End Region View関連  -->
 
     <!--  #End Region 独自コンポーネントの色リソース定義  -->
 
