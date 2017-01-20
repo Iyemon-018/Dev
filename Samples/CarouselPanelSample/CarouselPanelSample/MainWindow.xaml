@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
     xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:CarouselPanelSample"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
@@ -54,7 +55,9 @@
                 Grid.Column="1"
                 ItemTemplate="{DynamicResource MusicDataTemplate}"
                 ItemsSource="{Binding Musics, Mode=OneWay}"
-                SelectedIndex="{Binding SelectedMusicIndex, Mode=OneWay}">
+                SelectedIndex="{Binding SelectedMusicIndex, Mode=OneWay}"
+                StartItemIndex="{Binding SelectedMusicIndex, Mode=OneWay}"
+                WrapItems="True">
                 <ec:PathListBox.ItemContainerStyle>
                     <Style TargetType="{x:Type ListBoxItem}">
                         <Setter Property="BorderBrush" Value="DimGray" />
@@ -87,25 +90,41 @@
                 </ec:PathListBox.ItemContainerStyle>
                 <ec:PathListBox.LayoutPaths>
                     <ec:LayoutPath
-                        Capacity="5"
+                        Capacity="{Binding Capacity, Mode=OneWay}"
                         Distribution="Even"
+                        FillBehavior="NoOverlap"
                         SourceElement="{Binding ElementName=arc}"
-                        Start="0.6" />
+                        Start="0.5" />
+                    <ec:LayoutPath
+                        Distribution="Even"
+                        FillBehavior="NoOverlap"
+                        SourceElement="{Binding ElementName=Line}" />
                 </ec:PathListBox.LayoutPaths>
+                <!--<i:Interaction.Behaviors>
+                    <local:PathListBoxBehavior />
+                </i:Interaction.Behaviors>-->
             </ec:PathListBox>
             <ed:Arc
                 x:Name="arc"
                 Grid.Column="1"
-                Width="400"
-                Height="400"
+                Width="100"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
+                VerticalAlignment="Stretch"
                 ArcThickness="0"
                 ArcThicknessUnit="Pixel"
-                EndAngle="90"
+                EndAngle="180"
                 Fill="#FFF4F4F5"
                 StartAngle="0"
                 Stroke="Black" />
+            <Line
+                x:Name="Line"
+                Grid.Column="1"
+                Margin="0,0,100,0"
+                HorizontalAlignment="Right"
+                X1="000"
+                X2="000"
+                Y1="0"
+                Y2="400" />
             <Button
                 Grid.Column="2"
                 Command="{Binding NextCommand, Mode=OneWay}"
