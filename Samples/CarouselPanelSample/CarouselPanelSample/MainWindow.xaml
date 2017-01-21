@@ -94,7 +94,7 @@
                         Distribution="Even"
                         FillBehavior="NoOverlap"
                         SourceElement="{Binding ElementName=arc}"
-                        Start="0.5" />
+                        Start="0.0" />
                     <ec:LayoutPath
                         Distribution="Even"
                         FillBehavior="NoOverlap"
@@ -107,14 +107,16 @@
             <ed:Arc
                 x:Name="arc"
                 Grid.Column="1"
-                Width="100"
+                Width="120"
+                Margin="40"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Stretch"
                 ArcThickness="0"
                 ArcThicknessUnit="Pixel"
                 EndAngle="180"
                 Fill="#FFF4F4F5"
-                StartAngle="0"
+                StartAngle="30"
+                StrokeThickness="0"
                 Stroke="Black" />
             <Line
                 x:Name="Line"
