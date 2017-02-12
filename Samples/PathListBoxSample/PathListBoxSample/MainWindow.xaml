@@ -3,14 +3,45 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
     xmlns:local="clr-namespace:PathListBoxSample"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="525"
-    Height="350"
+    Width="240"
+    Height="240"
     mc:Ignorable="d">
     <Window.DataContext>
         <local:MainViewModel />
     </Window.DataContext>
-    <Grid />
+    <Grid>
+        <ec:PathListBox
+            ItemsSource="{Binding Values, Mode=OneWay}"
+            StartItemIndex="2"
+            WrapItems="True">
+            <ec:PathListBox.LayoutPaths>
+                <ec:LayoutPath SourceElement="{Binding ElementName=path}" />
+            </ec:PathListBox.LayoutPaths>
+        </ec:PathListBox>
+        <Border>
+            <Path
+                x:Name="path"
+                Margin="47.958,56.296,51.484,48.649"
+                Data="M167.9651,297.05052 C167.1821,300.96551 298.95333,358.22029 298.95333,358.22029 L336.53545,481.93313 501.22995,268.87785 584.51969,339.3325"
+                Stretch="Fill"
+                Stroke="#FFE40000" />
+        </Border>
+        <Button
+            Width="32"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding AddCommand, Mode=OneWay}"
+            Content="+" />
+        <Button
+            Width="32"
+            Margin="36,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding SubCommand, Mode=OneWay}"
+            Content="-" />
+    </Grid>
 </Window>
