@@ -5,3 +5,5 @@
 **/packages
 *.DotSettings
 **/.vs
+/Samples/PathListBoxSample/PathListBoxSample.sln.GhostDoc.xml
+/Develops/JenkinsNotificationTool/JenkinsNotificationTool.sln.GhostDoc.xml
