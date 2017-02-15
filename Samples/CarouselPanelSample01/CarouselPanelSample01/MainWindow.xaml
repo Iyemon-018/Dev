@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:CarouselPanelSample01"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="MainWindow"
@@ -11,21 +12,18 @@
         Height="350"
         mc:Ignorable="d">
     <Grid>
-
-
         <ec:PathListBox x:Name="pathListBox"
                         Width="0"
                         Height="0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         WrapItems="True">
+            <i:Interaction.Behaviors>
+                <local:PathListBoxBehavior />
+            </i:Interaction.Behaviors>
             <ec:PathListBox.LayoutPaths>
-                <ec:LayoutPath Padding="0"
-                               SourceElement="{Binding ElementName=path}"
-                               Start="0.5" />
+                <ec:LayoutPath Padding="0" SourceElement="{Binding ElementName=path}" />
             </ec:PathListBox.LayoutPaths>
-
-
             <ed:RegularPolygon Width="100"
                                Height="100"
                                Fill="Blue"
@@ -78,7 +76,18 @@
         </ec:PathListBox>
         <Path x:Name="path"
               VerticalAlignment="Top"
-              Data="M-100,160 L600,160" />
-
+              Data="M-50,160 L550,160" />
+        <Button x:Name="PreviousButton"
+                Width="32"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="PreviousButton_OnClick"
+                Content="＜" />
+        <Button x:Name="NextButton"
+                Width="32"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Click="NextButton_OnClick"
+                Content="＞" />
     </Grid>
 </Window>
