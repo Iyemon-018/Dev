@@ -2,11 +2,59 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prism._01.BootstrapperSample"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Wpf"
+        xmlns:viewModels="clr-namespace:Prism._01.BootstrapperSample.ViewModels"
+        Title="MainWindow"
+        Width="525"
+        Height="350"
+        d:DataContext="{d:DesignInstance {x:Type local:MainWindowViewModel},
+                                         IsDesignTimeCreatable=True}"
+        mvvm:ViewModelLocator.AutoWireViewModel="True"
+        mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button Margin="12,4"
+                    HorizontalAlignment="Right"
+                    Command="{Binding AddPersonCommand,
+                                      Mode=OneWay}"
+                    Content="Add"
+                    Padding="12,3" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListBox ItemsSource="{Binding People, Mode=OneWay}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="{x:Type viewModels:Person}">
+                        <Border>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" MinWidth="50" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="0"
+                                           Text="氏名" />
+                                <TextBox Grid.Row="0"
+                                         Grid.Column="1"
+                                         Text="{Binding Name,
+                                                        Mode=TwoWay,
+                                                        UpdateSourceTrigger=PropertyChanged}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </Grid>
 </Window>

@@ -1,17 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Prism.Unity;
-
-namespace Prism._01.BootstrapperSample
+﻿namespace Prism._01.BootstrapperSample
 {
+    using System;
+    using System.Reflection;
     using System.Windows;
     using Microsoft.Practices.ServiceLocation;
+    using Prism.Mvvm;
+    using Prism.Unity;
+    using Prism._01.BootstrapperSample.Attributes;
 
+    /// <summary>
+    /// このアプリケーションのBootstrapperクラスです。
+    /// </summary>
+    /// <seealso cref="Prism.Unity.UnityBootstrapper" />
     public class Bootstrapper : UnityBootstrapper
     {
+        #region Methods
+
+        /// <summary>
+        /// Prismの<see cref="ViewModelLocator"/> を構成します。
+        /// </summary>
+        protected override void ConfigureViewModelLocator()
+        {
+            Console.WriteLine($"> {DateTime.Now:hh:mm:ss.fff} [Info] Called ConfigureViewModelLocator.");
+            //base.ConfigureViewModelLocator();
+
+            ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(
+                                                               x =>
+                                                               {
+                                                                   // Viewに定義したViewModelAttribute属性の型によってViewModelを決定する。
+                                                                   var viewModelType = x.GetCustomAttribute<ViewModelAttribute>();
+                                                                   return viewModelType?.Type;
+                                                               });
+            ViewModelLocationProvider.SetDefaultViewModelFactory(Activator.CreateInstance);
+        }
+
         /// <summary>
         /// アプリケーションのShellインスタンスを生成します。
         /// </summary>
@@ -43,5 +65,7 @@ namespace Prism._01.BootstrapperSample
             Application.Current.MainWindow = Shell as Window;
             Application.Current.MainWindow.Show();
         }
+
+        #endregion
     }
 }

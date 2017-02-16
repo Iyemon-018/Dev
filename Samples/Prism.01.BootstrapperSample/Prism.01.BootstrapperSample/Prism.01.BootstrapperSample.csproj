@@ -112,7 +112,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Attributes\ViewModelAttribute.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ViewModels\Person.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
