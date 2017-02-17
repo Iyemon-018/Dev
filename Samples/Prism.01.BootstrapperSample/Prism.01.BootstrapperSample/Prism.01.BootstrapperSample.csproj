@@ -113,6 +113,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Attributes\ViewModelAttribute.cs" />
+    <Compile Include="Converters\EnumToBooleanConverter.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModels\Person.cs" />
     <Page Include="MainWindow.xaml">

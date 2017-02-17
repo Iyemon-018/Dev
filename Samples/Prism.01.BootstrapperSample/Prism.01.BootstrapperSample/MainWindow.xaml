@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Wpf"
         xmlns:viewModels="clr-namespace:Prism._01.BootstrapperSample.ViewModels"
+        xmlns:converters="clr-namespace:Prism._01.BootstrapperSample.Converters"
         Title="MainWindow"
         Width="525"
         Height="350"
@@ -13,6 +14,17 @@
                                          IsDesignTimeCreatable=True}"
         mvvm:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="4,2" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="4,2" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+        <converters:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    </Window.Resources>
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -28,28 +40,98 @@
                     Padding="12,3" />
         </Grid>
         <Grid Grid.Row="1">
-            <ListBox ItemsSource="{Binding People, Mode=OneWay}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListBox HorizontalContentAlignment="Stretch"
+                     VerticalContentAlignment="Stretch"
+                     ItemsSource="{Binding People,
+                                           Mode=OneWay}"
+                     SelectedItem="{Binding SelectedPerson,
+                                            Mode=TwoWay,
+                                            UpdateSourceTrigger=PropertyChanged}">
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type viewModels:Person}">
-                        <Border>
+                        <Border Background="Beige"
+                                BorderBrush="CornflowerBlue"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Padding="8,4">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="50" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Row="0"
-                                           Grid.Column="0"
-                                           Text="氏名" />
-                                <TextBox Grid.Row="0"
-                                         Grid.Column="1"
-                                         Text="{Binding Name,
-                                                        Mode=TwoWay,
-                                                        UpdateSourceTrigger=PropertyChanged}" />
+                                <Border Grid.Row="0">
+                                    <Button HorizontalAlignment="Right"
+                                            Command="{Binding DataContext.RemovePersonCommand,
+                                                              ElementName=LayoutRoot,
+                                                              Mode=OneWay}"
+                                            CommandParameter="{Binding Mode=OneWay}"
+                                            Content="x"
+                                            Padding="8,2" />
+                                </Border>
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" MinWidth="70" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="氏名" />
+                                    <TextBox Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="{Binding Name,
+                                                            Mode=TwoWay,
+                                                            UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock Grid.Row="1"
+                                               Grid.Column="0"
+                                               Text="年齢" />
+                                    <TextBox Grid.Row="1"
+                                             Grid.Column="1"
+                                             Width="32"
+                                             HorizontalAlignment="Left"
+                                             HorizontalContentAlignment="Right"
+                                             Text="{Binding Age,
+                                                            Mode=TwoWay,
+                                                            UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock Grid.Row="2"
+                                               Grid.Column="0"
+                                               Text="性別" />
+                                    <StackPanel Grid.Row="2"
+                                                Grid.Column="1"
+                                                Margin="4,2"
+                                                Orientation="Horizontal">
+                                        <RadioButton Content="男性" IsChecked="{Binding Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Male}" />
+                                        <RadioButton Margin="12,0,0,0"
+                                                     Content="女性"
+                                                     IsChecked="{Binding Gender,
+                                                                         Mode=TwoWay,
+                                                                         UpdateSourceTrigger=PropertyChanged,
+                                                                         Converter={StaticResource EnumToBooleanConverter},
+                                                                         ConverterParameter=Female}" />
+                                    </StackPanel>
+                                    <TextBlock Grid.Row="3"
+                                               Grid.Column="0"
+                                               Text="住所" />
+                                    <TextBox Grid.Row="3"
+                                             Grid.Column="1"
+                                             Text="{Binding Address,
+                                                            Mode=TwoWay,
+                                                            UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock Grid.Row="4"
+                                               Grid.Column="0"
+                                               Text="メールアドレス" />
+                                    <TextBox Grid.Row="4"
+                                             Grid.Column="1"
+                                             Text="{Binding MailAddress,
+                                                            Mode=TwoWay,
+                                                            UpdateSourceTrigger=PropertyChanged}" />
+                                </Grid>
                             </Grid>
                         </Border>
                     </DataTemplate>

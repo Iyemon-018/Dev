@@ -1,11 +1,6 @@
 ﻿namespace Prism._01.BootstrapperSample
 {
-    using System;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.ComponentModel;
-    using System.Linq;
-    using System.Threading.Tasks;
     using Prism.Commands;
     using Prism._01.BootstrapperSample.ViewModels;
 
@@ -31,9 +26,19 @@
         /// </summary>
         public MainWindowViewModel()
         {
-            People = new ObservableCollection<Person>();
+            People = new ObservableCollection<Person>
+                         {
+                             new Person
+                                 {
+                                     Name = "JugemuJugemu.",
+                                     Age = 20,
+                                     Gender = GenderType.Male,
+                                     Address = "大阪府大阪市福島区吉野三丁目１２－２５ 参考ビル401",
+                                     MailAddress = "jjugemu@microcircus.com"
+                                 },
+                         };
             AddPersonCommand = new DelegateCommand(OnExecuteAddPersonCommand);
-            RemovePersonCommand = new DelegateCommand(OnExecuteRemovePersonCommand);
+            RemovePersonCommand = new DelegateCommand<Person>(OnExecuteRemovePersonCommand);
         }
 
         #endregion
@@ -53,7 +58,10 @@
         /// <summary>
         /// ユーザー削除コマンドを設定、取得します。
         /// </summary>
-        public DelegateCommand RemovePersonCommand { get; private set; }
+        /// <remarks>
+        /// ジェネリックのDelegateCommandを使用すると、CommandParameterが使用できるようになる。
+        /// </remarks>
+        public DelegateCommand<Person> RemovePersonCommand { get; private set; }
 
         /// <summary>
         /// 選択されたユーザーを設定、または取得します。
@@ -79,11 +87,12 @@
         /// <summary>
         /// ユーザー削除コマンドを実行します。
         /// </summary>
-        private void OnExecuteRemovePersonCommand()
+        /// <param name="person">選択されたユーザー</param>
+        private void OnExecuteRemovePersonCommand(Person person)
         {
-            if (SelectedPerson != null)
+            if (person != null)
             {
-                People.Remove(SelectedPerson);
+                People.Remove(person);
             }
         }
 
