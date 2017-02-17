@@ -86,13 +86,13 @@
             var validate = Validator.TryValidateProperty(value, context, errors);
             if (validate)
             {
-                // エラーあり
-                _errorsContainer.SetErrors(propertyName, errors.Select(x => x.ErrorMessage));
+                // エラーなし
+                _errorsContainer.ClearErrors(propertyName);
             }
             else
             {
-                // エラーなし
-                _errorsContainer.ClearErrors(propertyName);
+                // エラーあり
+                _errorsContainer.SetErrors(propertyName, errors.Select(x => x.ErrorMessage));
             }
         }
 
