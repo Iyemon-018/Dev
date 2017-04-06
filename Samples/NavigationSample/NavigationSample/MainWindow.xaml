@@ -18,14 +18,10 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="Azure">
             <TextBlock Margin="4" />
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button Content="Prev" />
-                <Button Content="Next" />
-            </StackPanel>
         </Grid>
         <Frame
             x:Name="frame"
             Grid.Row="1"
-            Content="Frame" />
+            NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

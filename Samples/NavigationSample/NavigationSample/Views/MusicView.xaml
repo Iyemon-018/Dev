@@ -6,14 +6,17 @@
     xmlns:local="clr-namespace:NavigationSample.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:NavigationSample.ViewModels"
+    xmlns:mvvm="http://prismlibrary.com/"
     Title="MusicView"
-    d:DataContext="{d:DesignInstance {x:Type viewModels:MusicViewModel}}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+      d:DataContext="{d:DesignInstance {x:Type viewModels:MusicViewModel}}"
     d:DesignHeight="300"
     d:DesignWidth="300"
     Background="#FFFFB0B0"
     mc:Ignorable="d">
 
     <Grid>
+        <TextBlock FontSize="28" Text="Music View" />
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
             <Button Command="{Binding PrevCommand, Mode=OneWay}" Content="Prev" />
             <Button Command="{Binding NextCommand, Mode=OneWay}" Content="Next" />

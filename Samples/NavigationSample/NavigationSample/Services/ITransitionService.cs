@@ -19,5 +19,7 @@
         void Navigate(TransitionPageView pageView, object parameter);
 
         void ShowDialog(TransitionDialogView dialogView);
+
+        void SetService(object navigationService);
     }
 }

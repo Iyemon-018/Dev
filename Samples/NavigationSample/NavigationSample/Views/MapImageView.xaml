@@ -5,14 +5,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NavigationSample.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mvvm="http://prismlibrary.com/"
     xmlns:viewModels="clr-namespace:NavigationSample.ViewModels"
     Title="MapContentView"
     d:DataContext="{d:DesignInstance {x:Type viewModels:MapImageViewModel}}"
     d:DesignHeight="300"
     d:DesignWidth="300"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
     Background="#FFC7C7C7"
     mc:Ignorable="d">
     <Grid>
+        <TextBlock FontSize="28" Text="MapImage View" />
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
             <Button Command="{Binding PrevCommand, Mode=OneWay}" Content="Prev" />
             <Button Command="{Binding NextCommand, Mode=OneWay}" Content="Next" />

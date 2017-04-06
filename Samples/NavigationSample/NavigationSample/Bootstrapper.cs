@@ -14,6 +14,9 @@
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
+
+            var transitionService = new TransitionService();
+            Container.RegisterInstance<ITransitionService>(transitionService);
         }
 
         protected override void ConfigureViewModelLocator()
@@ -45,14 +48,16 @@
         protected override void InitializeShell()
         {
             base.InitializeShell();
+
             var app = Application.Current;
             var mainView = Shell as MainWindow;
             app.MainWindow = mainView;
+            var trasitionService = Container.Resolve<ITransitionService>();
 
-            var transitionService = new TransitionService(mainView.frame.NavigationService);
-            Container.RegisterInstance(transitionService);
+            trasitionService.SetService(mainView.frame.NavigationService);
+
             mainView.Show();
-            transitionService.Navigate(TransitionPageView.Map, null);
+            trasitionService.Navigate(TransitionPageView.Map, null);
         }
 
         #endregion
