@@ -14,8 +14,12 @@
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
+            
+            var dataStore = new DataStore();
+            Container.RegisterInstance<IDataStore>(dataStore);
 
             var transitionService = new TransitionService();
+            transitionService.SetDataStore(dataStore);
             Container.RegisterInstance<ITransitionService>(transitionService);
         }
 

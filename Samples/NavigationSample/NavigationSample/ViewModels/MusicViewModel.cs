@@ -4,7 +4,7 @@
 
     public class MusicViewModel : PageViewModelBase
     {
-        public MusicViewModel(ITransitionService transitionService) : base(transitionService)
+        public MusicViewModel(ITransitionService transitionService, IDataStore dataStore) : base(transitionService, dataStore)
         {
         }
         protected override TransitionPageView NextView => TransitionPageView.Drawing;

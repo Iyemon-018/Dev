@@ -112,7 +112,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Services\DataStore.cs" />
+    <Compile Include="Services\IDataStore.cs" />
     <Compile Include="Services\ITransitionService.cs" />
+    <Compile Include="Services\IPageViewData.cs" />
+    <Compile Include="Services\PageViewData.cs" />
     <Compile Include="Services\TransitionService.cs" />
     <Compile Include="ViewModelResolveAttribute.cs" />
     <Compile Include="ViewModels\AirControllerViewModel.cs" />

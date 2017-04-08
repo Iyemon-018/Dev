@@ -4,7 +4,7 @@
 
     public class DrawingViewModel : PageViewModelBase
     {
-        public DrawingViewModel(ITransitionService transitionService) : base(transitionService)
+        public DrawingViewModel(ITransitionService transitionService, IDataStore dataStore) : base(transitionService, dataStore)
         {
         }
         protected override TransitionPageView NextView => TransitionPageView.AirController;

@@ -8,10 +8,13 @@
     {
         private readonly ITransitionService _transitionService;
 
-        protected PageViewModelBase(ITransitionService transitionService)
+        private readonly IDataStore _dataStore;
+
+        protected PageViewModelBase(ITransitionService transitionService, IDataStore dataStore)
         {
             if (transitionService == null) throw new ArgumentNullException(nameof(transitionService));
             _transitionService = transitionService;
+            _dataStore = dataStore;
 
             NextCommand = new DelegateCommand(ExecuteNextCommand);
             PrevCommand = new DelegateCommand(ExecutePrevCommand);
@@ -28,6 +31,8 @@
         }
 
         protected ITransitionService TransitionService => _transitionService;
+
+        protected IDataStore DataStore => _dataStore;
 
         public DelegateCommand NextCommand { get; private set; }
 

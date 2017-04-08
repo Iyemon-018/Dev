@@ -21,5 +21,7 @@
         void ShowDialog(TransitionDialogView dialogView);
 
         void SetService(object navigationService);
+
+        void SetDataStore(IDataStore dataStore);
     }
 }

@@ -4,7 +4,7 @@
 
     public class AirControllerViewModel : PageViewModelBase
     {
-        public AirControllerViewModel(ITransitionService transitionService) : base(transitionService)
+        public AirControllerViewModel(ITransitionService transitionService, IDataStore dataStore) : base(transitionService, dataStore)
         {
         }
 
