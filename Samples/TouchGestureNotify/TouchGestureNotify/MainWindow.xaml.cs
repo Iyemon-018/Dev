@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 
 namespace TouchGestureNotify
 {
+    using System.Windows.Interop;
+
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
@@ -24,5 +26,24 @@ namespace TouchGestureNotify
         {
             InitializeComponent();
         }
+
+        #region WPF でWndProc をフックする方法
+        
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+
+            var handle = new WindowInteropHelper(this).Handle;
+            HwndSource.FromHwnd(handle).AddHook(WndProc);
+        }
+
+        private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
+        {
+            Console.WriteLine($"> [{DateTime.Now:HH:mm:ss.fff}] 0x{msg:X8}");
+            return hwnd;
+        }
+
+        #endregion
+
     }
 }
