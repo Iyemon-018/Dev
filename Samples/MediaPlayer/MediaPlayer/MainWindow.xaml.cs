@@ -23,6 +23,9 @@ namespace MediaPlayer
         public MainWindow()
         {
             InitializeComponent();
+            var vm = new MainViewModel();
+            DataContext = vm;
+            MediaElement.Clock = vm.MediaClock;
         }
     }
 }
