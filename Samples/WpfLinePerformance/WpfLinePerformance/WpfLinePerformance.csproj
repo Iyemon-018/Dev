@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{886518DB-B014-4F97-8EC1-12277267C306}</ProjectGuid>
+    <ProjectGuid>{BCA67B9A-E7F3-4715-998B-E15FF46DB81F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TileImageSample</RootNamespace>
-    <AssemblyName>TileImageSample</AssemblyName>
+    <RootNamespace>WpfLinePerformance</RootNamespace>
+    <AssemblyName>WpfLinePerformance</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -54,6 +54,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LineDrawView.xaml.cs">
+      <DependentUpon>LineDrawView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VisualDrawingContextView.xaml.cs">
+      <DependentUpon>VisualDrawingContextView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VisualLineHost.cs" />
+    <Page Include="LineDrawView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +77,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VisualDrawingContextView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -94,9 +109,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sample.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{c12dee7c-ccfb-46fb-9375-82a7e9e0237e}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
