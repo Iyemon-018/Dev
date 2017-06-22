@@ -1,0 +1,34 @@
+﻿<Window
+    x:Class="TouchFeedbackDisable.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TouchFeedbackDisable"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="525"
+    Height="350"
+    Background="#FF292929"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0">
+            <CheckBox
+                Checked="TouchFeedback_OnChecked"
+                Content="Touch Feedback"
+                Foreground="GhostWhite"
+                IsChecked="True"
+                Unchecked="TouchFeedback_OnUnchecked" />
+        </Border>
+        <Canvas
+            Grid.Row="1"
+            Background="Black"
+            PreviewTouchDown="DrawLinePanel_OnPreviewTouchDown"
+            PreviewTouchMove="DrawLinePanel_OnPreviewTouchMove" />
+    </Grid>
+</Window>
