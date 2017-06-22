@@ -7,6 +7,7 @@
         Title="MainWindow"
         Width="800"
         Height="600"
+        PreviewMouseDown="MainWindow_OnPreviewMouseDown"
         mc:Ignorable="d">
     <Grid x:Name="LayoutRoot">
         <Grid.ColumnDefinitions>
@@ -15,30 +16,41 @@
         </Grid.ColumnDefinitions>
         <ListBox x:Name="TouchElementViewListBox"
                  Grid.Column="0"
-                 MinWidth="200" />
+                 Width="200" />
+        <CheckBox x:Name="HiddenPanelBCheckBox"
+                  Grid.Column="1"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Checked="HiddenPanelBCheckBox_OnChecked"
+                  Content="PanelB を非表示にする"
+                  Unchecked="HiddenPanelBCheckBox_OnUnchecked" />
         <Canvas x:Name="TouchCanvas" Grid.Column="1">
-            <Label x:Name="PanelA"
-                   Canvas.Left="151"
-                   Canvas.Top="100"
-                   Width="200"
-                   Height="200"
-                   HorizontalContentAlignment="Center"
-                   VerticalContentAlignment="Center"
-                   Background="Red"
-                   Content="A"
-                   FontSize="72"
-                   Foreground="White" />
-            <Label x:Name="PanelB"
-                   Canvas.Left="311"
-                   Canvas.Top="192"
-                   Width="200"
-                   Height="200"
-                   HorizontalContentAlignment="Center"
-                   VerticalContentAlignment="Center"
-                   Background="Green"
-                   Content="B"
-                   FontSize="72"
-                   Foreground="White" />
+            <Border x:Name="PanelA"
+                    Canvas.Left="151"
+                    Canvas.Top="100"
+                    Width="200"
+                    Height="200"
+                    Background="Red">
+                <TextBlock x:Name="ContentA"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="72"
+                           Foreground="White"
+                           Text="A" />
+            </Border>
+            <Border x:Name="PanelB"
+                    Canvas.Left="311"
+                    Canvas.Top="192"
+                    Width="200"
+                    Height="200"
+                    Background="Green">
+                <TextBlock x:Name="ContentB"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="72"
+                           Foreground="White"
+                           Text="B" />
+            </Border>
         </Canvas>
     </Grid>
 </Window>
