@@ -1,28 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace MediaPlayerNoiseApp
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Windows.Documents;
+    using System.Windows.Media;
+
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly List<MediaPlayer> _mediaPlayers = new List<MediaPlayer>();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void PlayButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            string selectedMusicFilePath = FileNamesListBox.SelectedItem as string;
+            if (selectedMusicFilePath != null)
+            {
+                _mediaPlayers.FirstOrDefault(x => x.Source.LocalPath.Equals(selectedMusicFilePath))?.Play();
+            }
+        }
+        
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            string[] files = Directory.EnumerateFiles(@"C:\work\Musics", "*.wav").ToArray();
+            FileNamesListBox.ItemsSource = files;
+            foreach (string file in files)
+            {
+                var mediaPlayer= new MediaPlayer();
+                mediaPlayer.Open(new Uri(file));
+                _mediaPlayers.Add(mediaPlayer);
+            }
         }
     }
 }
