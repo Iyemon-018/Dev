@@ -26,7 +26,12 @@ namespace MediaPlayerNoiseApp
             string selectedMusicFilePath = FileNamesListBox.SelectedItem as string;
             if (selectedMusicFilePath != null)
             {
-                _mediaPlayers.FirstOrDefault(x => x.Source.LocalPath.Equals(selectedMusicFilePath))?.Play();
+                MediaPlayer targetPlayer = _mediaPlayers.FirstOrDefault(x => x.Source.LocalPath.Equals(selectedMusicFilePath));
+                if (targetPlayer != null)
+                {
+                    if (targetPlayer.IsMuted) targetPlayer.IsMuted = false;
+                    targetPlayer.Play();
+                }
             }
         }
         
@@ -36,7 +41,10 @@ namespace MediaPlayerNoiseApp
             FileNamesListBox.ItemsSource = files;
             foreach (string file in files)
             {
-                var mediaPlayer= new MediaPlayer();
+                var mediaPlayer= new MediaPlayer
+                                     {
+                                         IsMuted = true
+                                     };
                 mediaPlayer.Open(new Uri(file));
                 _mediaPlayers.Add(mediaPlayer);
             }
