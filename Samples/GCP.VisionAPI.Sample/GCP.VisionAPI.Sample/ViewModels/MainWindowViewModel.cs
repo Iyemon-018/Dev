@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Media.Imaging;
@@ -73,9 +74,11 @@ namespace GCP.VisionAPI.Sample.ViewModels
             Block[] blocks = response.Pages.SelectMany(x => x.Blocks).ToArray();
             Paragraph[] paragraphs = blocks.SelectMany(x => x.Paragraphs).ToArray();
             Word[] words = paragraphs.SelectMany(x => x.Words).ToArray();
+            Symbol[] symbols = words.SelectMany(x => x.Symbols).ToArray();
+            string[] textList = symbols.Select(x => x.Text).ToArray();
             AnalysisResults.Clear();
-            AnalysisResults.AddRange(words.Select(x => x.ToString()));
-            AnalysisResultFlatten = string.Join(Environment.NewLine, AnalysisResults);
+            AnalysisResults.AddRange(textList);
+            AnalysisResultFlatten = string.Join("", AnalysisResults);
             NotifyMessage = "解析が完了した。";
         }
 

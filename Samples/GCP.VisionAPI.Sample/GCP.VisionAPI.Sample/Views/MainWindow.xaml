@@ -17,6 +17,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <StackPanel
@@ -40,18 +41,21 @@
                 Command="{Binding AnalyzeCommand, Mode=OneWay}"
                 Content="Analyze" />
         </StackPanel>
-        <StackPanel Grid.Row="1">
-            <Image
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Source="{Binding ImageSource, Mode=OneWay}"
-                Stretch="UniformToFill" />
-            <Label
-                Padding="16"
-                HorizontalAlignment="Right"
-                Content="{Binding AnalysisResultFlatten, Mode=OneWay}" />
-        </StackPanel>
-        <StatusBar Grid.Row="2" Padding="16,8">
+        <Grid Grid.Row="1">
+            <Image Source="{Binding ImageSource, Mode=OneWay}" Stretch="UniformToFill" />
+        </Grid>
+        <ScrollViewer
+            Grid.Row="2"
+            Padding="16"
+            Background="#CC2B2B2B"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto">
+            <TextBlock
+                Foreground="#FFE9E9E9"
+                Text="{Binding AnalysisResultFlatten, Mode=OneWay}"
+                TextWrapping="WrapWithOverflow" />
+        </ScrollViewer>
+        <StatusBar Grid.Row="3" Padding="16,8">
             <StatusBarItem>
                 <TextBlock Text="{Binding NotifyMessage, Mode=OneWay}" />
             </StatusBarItem>
