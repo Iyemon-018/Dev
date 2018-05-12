@@ -37,16 +37,24 @@
             <Button
                 Margin="16,0,0,0"
                 Padding="16,8"
+                Command="{Binding AnalyzeCommand, Mode=OneWay}"
                 Content="Analyze" />
         </StackPanel>
         <StackPanel Grid.Row="1">
             <Image
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
+                Source="{Binding ImageSource, Mode=OneWay}"
                 Stretch="UniformToFill" />
+            <Label
+                Padding="16"
+                HorizontalAlignment="Right"
+                Content="{Binding AnalysisResultFlatten, Mode=OneWay}" />
         </StackPanel>
-        <StatusBar Grid.Row="2">
-            <StatusBarItem Content="{Binding NotifyMessage, Mode=OneWay}" />
+        <StatusBar Grid.Row="2" Padding="16,8">
+            <StatusBarItem>
+                <TextBlock Text="{Binding NotifyMessage, Mode=OneWay}" />
+            </StatusBarItem>
         </StatusBar>
     </Grid>
 </Window>
