@@ -2,10 +2,12 @@
     x:Class="GCP.VisionAPI.Sample.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:GCP.VisionAPI.Sample.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewModels="clr-namespace:GCP.VisionAPI.Sample.ViewModels"
+    xmlns:vision="clr-namespace:Google.Cloud.Vision.V1;assembly=Google.Cloud.Vision.V1"
     Title="Google Cloud Platform Vision API Sample"
     Width="800"
     Height="600"
@@ -13,6 +15,170 @@
                                      IsDesignTimeCreatable=True}"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
+    <Window.Resources>
+
+        <converters:BoundingBoxToStringConverter x:Key="BoundingBoxToStringConverter" />
+
+        <!--  Block のTreeView Template  -->
+        <HierarchicalDataTemplate DataType="{x:Type vision:Block}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="BlockType" />
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{Binding BlockType, Mode=OneTime}" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Confidence" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding Confidence, Mode=OneTime}" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="BoundingBox" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="{Binding BoundingBox, Mode=OneTime, Converter={StaticResource BoundingBoxToStringConverter}}" />
+                <TreeViewItem
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Header="Paragraphs"
+                    ItemsSource="{Binding Paragraphs, Mode=OneTime}" />
+            </Grid>
+        </HierarchicalDataTemplate>
+
+        <!--  Paragraph のTreeView Template  -->
+        <HierarchicalDataTemplate DataType="{x:Type vision:Paragraph}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Confidence" />
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{Binding Confidence, Mode=OneTime}" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="BoundingBox" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding BoundingBox, Mode=OneTime, Converter={StaticResource BoundingBoxToStringConverter}}" />
+                <TreeViewItem
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Header="Words"
+                    ItemsSource="{Binding Words, Mode=OneTime}" />
+            </Grid>
+        </HierarchicalDataTemplate>
+
+        <!--  Word のTreeView Template  -->
+        <HierarchicalDataTemplate DataType="{x:Type vision:Word}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Confidence" />
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{Binding Confidence, Mode=OneTime}" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="BoundingBox" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding BoundingBox, Mode=OneTime, Converter={StaticResource BoundingBoxToStringConverter}}" />
+                <TreeViewItem
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Header="Symbols"
+                    ItemsSource="{Binding Symbols, Mode=OneTime}" />
+            </Grid>
+        </HierarchicalDataTemplate>
+
+        <!--  Symbol のTreeView Template  -->
+        <HierarchicalDataTemplate DataType="{x:Type vision:Symbol}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Confidence" />
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{Binding Confidence, Mode=OneTime}" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="BoundingBox" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding BoundingBox, Mode=OneTime, Converter={StaticResource BoundingBoxToStringConverter}}" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Text" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="{Binding Text, Mode=OneTime}" />
+            </Grid>
+        </HierarchicalDataTemplate>
+
+    </Window.Resources>
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -44,17 +210,9 @@
         <Grid Grid.Row="1">
             <Image Source="{Binding ImageSource, Mode=OneWay}" Stretch="UniformToFill" />
         </Grid>
-        <ScrollViewer
-            Grid.Row="2"
-            Padding="16"
-            Background="#CC2B2B2B"
-            HorizontalScrollBarVisibility="Disabled"
-            VerticalScrollBarVisibility="Auto">
-            <TextBlock
-                Foreground="#FFE9E9E9"
-                Text="{Binding AnalysisResultFlatten, Mode=OneWay}"
-                TextWrapping="WrapWithOverflow" />
-        </ScrollViewer>
+        <Grid Grid.Row="2">
+            <TreeView Margin="16" ItemsSource="{Binding Blocks, Mode=OneWay}" />
+        </Grid>
         <StatusBar Grid.Row="3" Padding="16,8">
             <StatusBarItem>
                 <TextBlock Text="{Binding NotifyMessage, Mode=OneWay}" />

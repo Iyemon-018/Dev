@@ -39,6 +39,8 @@ namespace GCP.VisionAPI.Sample.ViewModels
 
         public ObservableCollection<string> AnalysisResults { get; } = new ObservableCollection<string>();
 
+        public ObservableCollection<Block> Blocks { get; } = new ObservableCollection<Block>();
+
         private string _analysisResultFlatten;
 
         public string AnalysisResultFlatten
@@ -72,6 +74,10 @@ namespace GCP.VisionAPI.Sample.ViewModels
             TextAnnotation response = getAnalysisResult(FileName);
             NotifyMessage = "解析結果を集計する。";
             Block[] blocks = response.Pages.SelectMany(x => x.Blocks).ToArray();
+
+            this.Blocks.Clear();
+            this.Blocks.AddRange(blocks);
+
             Paragraph[] paragraphs = blocks.SelectMany(x => x.Paragraphs).ToArray();
             Word[] words = paragraphs.SelectMany(x => x.Words).ToArray();
             Symbol[] symbols = words.SelectMany(x => x.Symbols).ToArray();
@@ -87,6 +93,7 @@ namespace GCP.VisionAPI.Sample.ViewModels
             Image image = Image.FromFile(fileName);
             ImageAnnotatorClient client = ImageAnnotatorClient.Create();
             TextAnnotation response = client.DetectDocumentText(image);
+
             return response;
         }
     }

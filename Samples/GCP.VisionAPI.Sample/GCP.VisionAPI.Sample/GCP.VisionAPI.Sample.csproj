@@ -65,6 +65,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\BoundingBoxToStringConverter.cs" />
     <Compile Include="Models\TextAnalysisResult.cs" />
     <Compile Include="Services\ISelectionDialogService.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
