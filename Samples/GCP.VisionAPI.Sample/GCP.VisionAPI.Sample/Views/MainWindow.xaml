@@ -27,6 +27,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -56,8 +57,13 @@
                     Grid.Row="2"
                     Grid.Column="1"
                     Text="{Binding BoundingBox, Mode=OneTime, Converter={StaticResource BoundingBoxToStringConverter}}" />
-                <TreeViewItem
+                <Button
                     Grid.Row="3"
+                    Grid.Column="0"
+                    Click="ViewRectangleButton_OnClick"
+                    Content="View Rectangle" />
+                <TreeViewItem
+                    Grid.Row="4"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     Header="Paragraphs"
@@ -72,6 +78,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -93,8 +100,13 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Text="{Binding BoundingBox, Mode=OneTime, Converter={StaticResource BoundingBoxToStringConverter}}" />
-                <TreeViewItem
+                <Button
                     Grid.Row="2"
+                    Grid.Column="0"
+                    Click="ViewRectangleButton_OnClick"
+                    Content="View Rectangle" />
+                <TreeViewItem
+                    Grid.Row="3"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     Header="Words"
@@ -109,6 +121,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -130,8 +143,13 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Text="{Binding BoundingBox, Mode=OneTime, Converter={StaticResource BoundingBoxToStringConverter}}" />
-                <TreeViewItem
+                <Button
                     Grid.Row="2"
+                    Grid.Column="0"
+                    Click="ViewRectangleButton_OnClick"
+                    Content="View Rectangle" />
+                <TreeViewItem
+                    Grid.Row="3"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     Header="Symbols"
@@ -146,6 +164,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -175,6 +194,11 @@
                     Grid.Row="2"
                     Grid.Column="1"
                     Text="{Binding Text, Mode=OneTime}" />
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Click="ViewRectangleButton_OnClick"
+                    Content="View Rectangle" />
             </Grid>
         </HierarchicalDataTemplate>
 
@@ -183,6 +207,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -207,13 +232,31 @@
                 Command="{Binding AnalyzeCommand, Mode=OneWay}"
                 Content="Analyze" />
         </StackPanel>
-        <Grid Grid.Row="1">
-            <Image Source="{Binding ImageSource, Mode=OneWay}" Stretch="UniformToFill" />
-        </Grid>
-        <Grid Grid.Row="2">
+        <Canvas Grid.Row="1">
+            <Image
+                Width="{Binding ImageSource.PixelWidth}"
+                Height="{Binding ImageSource.PixelHeight}"
+                Source="{Binding ImageSource, Mode=OneWay}"
+                Stretch="Uniform" />
+        </Canvas>
+        <Canvas x:Name="ViewRectanglePanel" Grid.Row="1">
+            <Rectangle
+                Canvas.Left="17"
+                Canvas.Top="10"
+                Width="20"
+                Height="20"
+                Stroke="Aqua"
+                StrokeThickness="2" />
+        </Canvas>
+        <GridSplitter
+            Grid.Row="2"
+            Height="2"
+            Background="#FF4E4E4E"
+            ResizeDirection="Rows" HorizontalAlignment="Stretch" />
+        <Grid Grid.Row="3">
             <TreeView Margin="16" ItemsSource="{Binding Blocks, Mode=OneWay}" />
         </Grid>
-        <StatusBar Grid.Row="3" Padding="16,8">
+        <StatusBar Grid.Row="4" Padding="16,8">
             <StatusBarItem>
                 <TextBlock Text="{Binding NotifyMessage, Mode=OneWay}" />
             </StatusBarItem>
