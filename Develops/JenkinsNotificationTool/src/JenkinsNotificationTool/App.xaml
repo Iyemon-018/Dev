@@ -1,9 +1,14 @@
 ﻿<Application x:Class="JenkinsNotificationTool.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:JenkinsNotificationTool"
-             StartupUri="MainWindow.xaml">
+             xmlns:properties="clr-namespace:JenkinsNotificationTool.Properties"
+             ShutdownMode="OnExplicitShutdown">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/JenkinsNotification.CustomControls;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <properties:Resources x:Key="Resources" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

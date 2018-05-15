@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--
+        ここには当アプリケーションで使用する共通色リソースを定義します。
+        色リソースとは、Brush やColor のことを指し示します。
+        リソースキーは、"大項目.中項目.小項目"のように、各項目を"."(ピリオド)で区切ってください。
+        ・大項目…画面やコンポーネントの種類など、どのような場面で使用するかを定義します。(System やView, ListBox など)
+        ・中項目…大項目のうち、グループ化された領域の名称を設定します。
+        ・小項目…リソースを適応するプロパティ名を設定します。(Foreground やBackground, BorderBsuh など)
+        以下はRegionのコピペ用コメントです。
+    -->
+    <!--  #Region TODO  -->
+    <!--  #End Region TODO  -->
+
+
+    <!--  #Region 独自コンポーネントの色リソース定義  -->
+
+    <!--  #Region MessageDialog関連  -->
+
+    <!--  MessageDialog の背景色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Main.Background" Color="#FFE8E8E8" />
+    <!--  MessageDialog の前景色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Main.Foreground" Color="Black" />
+    <!--  MessageDialog の枠線色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Main.BorderBrush" Color="DodgerBlue" />
+    <!--  MessageDialog のキャプションエリアの背景色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Caption.Background" Color="DodgerBlue" />
+    <!--  MessageDialog のキャプションエリアの前景色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Caption.Foreground" Color="GhostWhite" />
+    <!--  MessageDialog のセパレータの背景色に使用します。  -->
+    <SolidColorBrush x:Key="MessageDialog.Separator.Background" Color="DarkGray" />
+
+    <!--  #End Region MessageDialog関連  -->
+
+    <!--  #Region View関連  -->
+
+    <!--  View の背景色に使用します。  -->
+    <SolidColorBrush x:Key="View.Main.Background" Color="#FFE8E8E8" />
+
+    <!--  View の前景色に使用します。  -->
+    <SolidColorBrush x:Key="View.Main.Foreground" Color="Black" />
+
+    <!--  #End Region View関連  -->
+
+    <!--  #End Region 独自コンポーネントの色リソース定義  -->
+
+</ResourceDictionary>

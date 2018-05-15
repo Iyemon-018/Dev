@@ -1,0 +1,136 @@
+﻿<Window
+    x:Class="CarouselPanelSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
+    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:CarouselPanelSample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="600"
+    d:DataContext="{d:DesignInstance {x:Type local:MainWindowViewModel},
+                                     IsDesignTimeCreatable=True}"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <DataTemplate x:Key="MusicDataTemplate" DataType="{x:Type local:MusicData}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    x:Name="textBlock"
+                    VerticalAlignment="Center"
+                    FontSize="32"
+                    Text="{Binding Number, Mode=OneWay}" />
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <TextBlock
+                        Margin="12,6"
+                        FontSize="28"
+                        Text="{Binding Title, Mode=OneWay}" />
+                    <TextBlock
+                        Margin="12,0"
+                        HorizontalAlignment="Right"
+                        FontSize="22"
+                        Text="{Binding Artist, Mode=OneWay}" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding PreviousCommand, Mode=OneWay}" Content="＜" />
+            <ec:PathListBox
+                Grid.Column="1"
+                ItemTemplate="{DynamicResource MusicDataTemplate}"
+                ItemsSource="{Binding Musics, Mode=OneWay}"
+                SelectedIndex="{Binding SelectedMusicIndex, Mode=OneWay}"
+                StartItemIndex="{Binding SelectedMusicIndex, Mode=OneWay}"
+                WrapItems="True">
+                <ec:PathListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="BorderBrush" Value="DimGray" />
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="OverridesDefaultStyle" Value="True" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Border
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter
+                                            Margin="{TemplateBinding Padding}"
+                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            SnapsToDevicePixels="True" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="BorderThickness" Value="6" />
+                                <Setter Property="BorderBrush" Value="DarkOrange" />
+                                <Setter Property="Foreground" Value="DarkOrange" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ec:PathListBox.ItemContainerStyle>
+                <ec:PathListBox.LayoutPaths>
+                    <ec:LayoutPath
+                        Capacity="{Binding Capacity, Mode=OneWay}"
+                        Distribution="Even"
+                        FillBehavior="NoOverlap"
+                        SourceElement="{Binding ElementName=arc}"
+                        Start="0.0" />
+                    <ec:LayoutPath
+                        Distribution="Even"
+                        FillBehavior="NoOverlap"
+                        SourceElement="{Binding ElementName=Line}" />
+                </ec:PathListBox.LayoutPaths>
+                <!--<i:Interaction.Behaviors>
+                    <local:PathListBoxBehavior />
+                </i:Interaction.Behaviors>-->
+            </ec:PathListBox>
+            <ed:Arc
+                x:Name="arc"
+                Grid.Column="1"
+                Width="120"
+                Margin="40"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Stretch"
+                ArcThickness="0"
+                ArcThicknessUnit="Pixel"
+                EndAngle="180"
+                Fill="#FFF4F4F5"
+                StartAngle="30"
+                StrokeThickness="0"
+                Stroke="Black" />
+            <Line
+                x:Name="Line"
+                Grid.Column="1"
+                Margin="0,0,100,0"
+                HorizontalAlignment="Right"
+                X1="000"
+                X2="000"
+                Y1="0"
+                Y2="400" />
+            <Button
+                Grid.Column="2"
+                Command="{Binding NextCommand, Mode=OneWay}"
+                Content="＞" />
+        </Grid>
+    </Grid>
+</Window>

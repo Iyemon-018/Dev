@@ -1,0 +1,60 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:BindingSoureChangedAnimation"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        x:Class="BindingSoureChangedAnimation.MainWindow"
+        Title="MainWindow"
+        Width="525"
+        Height="350"
+        d:DataContext="{d:DesignInstance {x:Type local:MainWindowViewModel}, IsDesignTimeCreatable=True}"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <!-- 実行したいStoryboard  -->
+        <Storyboard x:Key="ColorChangeStoryboard"
+                    RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                          Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0"
+                                     Value="#FF7A7AFF" />
+                <EasingColorKeyFrame KeyTime="0:0:1"
+                                     Value="#FFFFFFA9" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <i:Interaction.Triggers>
+        <!--
+            IsAnimation プロパティの値が"True" ならStoryboard を開始する。
+            "True" 以外の値ならStoryboard を停止する。
+        -->
+        <ei:DataTrigger Binding="{Binding IsAnimation, Mode=OneWay}"
+                        Value="True">
+            <ei:ControlStoryboardAction Storyboard="{StaticResource ColorChangeStoryboard}" />
+        </ei:DataTrigger>
+        <ei:DataTrigger Binding="{Binding IsAnimation, Mode=OneWay}"
+                        Value="True"
+                        Comparison="NotEqual">
+            <ei:ControlStoryboardAction Storyboard="{StaticResource ColorChangeStoryboard}"
+                                        ControlStoryboardOption="Stop" />
+        </ei:DataTrigger>
+    </i:Interaction.Triggers>
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <CheckBox Content="アニメーション"
+                  IsChecked="{Binding IsAnimation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Border Grid.Row="1">
+            <Rectangle x:Name="rectangle"
+                       Fill="#FF7A7AFF"
+                       Stroke="Black"
+                       Margin="32" />
+        </Border>
+    </Grid>
+</Window>

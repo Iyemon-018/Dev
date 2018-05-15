@@ -1,0 +1,56 @@
+﻿<Window x:Class="VisualTreeHelperSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:VisualTreeHelperSample"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="800"
+        Height="600"
+        PreviewMouseDown="MainWindow_OnPreviewMouseDown"
+        mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="TouchElementViewListBox"
+                 Grid.Column="0"
+                 Width="200" />
+        <CheckBox x:Name="HiddenPanelBCheckBox"
+                  Grid.Column="1"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Checked="HiddenPanelBCheckBox_OnChecked"
+                  Content="PanelB を非表示にする"
+                  Unchecked="HiddenPanelBCheckBox_OnUnchecked" />
+        <Canvas x:Name="TouchCanvas" Grid.Column="1">
+            <Border x:Name="PanelA"
+                    Canvas.Left="151"
+                    Canvas.Top="100"
+                    Width="200"
+                    Height="200"
+                    Background="Red">
+                <TextBlock x:Name="ContentA"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="72"
+                           Foreground="White"
+                           Text="A" />
+            </Border>
+            <Border x:Name="PanelB"
+                    Canvas.Left="311"
+                    Canvas.Top="192"
+                    Width="200"
+                    Height="200"
+                    Background="Green">
+                <TextBlock x:Name="ContentB"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="72"
+                           Foreground="White"
+                           Text="B" />
+            </Border>
+        </Canvas>
+    </Grid>
+</Window>
