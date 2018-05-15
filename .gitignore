@@ -8,3 +8,6 @@
 /Samples/PathListBoxSample/PathListBoxSample.sln.GhostDoc.xml
 /Develops/JenkinsNotificationTool/JenkinsNotificationTool.sln.GhostDoc.xml
 /Dev/
+*.suo
+*.user
+/Samples/EnumConstantsSample/EnumConstantsSample.sln.GhostDoc.xml
