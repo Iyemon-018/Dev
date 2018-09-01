@@ -1,4 +1,7 @@
 ﻿using System.Windows;
+using CleanArchitecture.Wpf.Presenters;
+using CleanArchitecture.Wpf.UseCases;
+using CleanArchitecture.Wpf.ViewModels;
 
 namespace CleanArchitecture.Wpf.Views
 {
@@ -10,6 +13,11 @@ namespace CleanArchitecture.Wpf.Views
         public ShellView()
         {
             InitializeComponent();
+
+            // ここは本来Di Container を使うべき。
+            // サンプルのため、以下の方法でInjection している。
+            var useCase = new ExampleUseCase(new ProgressPresenter());
+            DataContext = new ShellViewModel(useCase);
         }
     }
 }

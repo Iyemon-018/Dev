@@ -6,9 +6,13 @@
     {
         int Value { get; }
 
+        int Count { get; }
+
         bool Completed { get; }
 
         void SetCount(int count);
+
+        void Restart();
 
         void Add(int value);
     }

@@ -23,9 +23,20 @@ namespace CleanArchitecture.Wpf.Presenters
 
         private int _count;
 
+        public int Count
+        {
+            get => _count;
+            private set => SetProperty(ref _count, value);
+        }
+
+
         public void SetCount(int count)
         {
-            _count = count;
+            this.Count = count;
+        }
+
+        public void Restart()
+        {
             this.Value = 0;
             this.Completed = false;
         }
@@ -33,7 +44,7 @@ namespace CleanArchitecture.Wpf.Presenters
         public void Add(int value)
         {
             var newValue = this.Value + value;
-            if (_count > newValue)
+            if (_count <= newValue)
             {
                 this.Value = _count;
                 this.Completed = true;
