@@ -18,10 +18,11 @@ namespace MaterialDesign.Dialog.Example
             base.InitializeShell();
 
             DialogService dialogService = new DialogService("MessageDialogHost");
+            UserDataAddDialogService userDataAddDialogService = new UserDataAddDialogService("UserDataAddDialogHost");
 
             Shell shell = Shell as Shell;
             App.Current.MainWindow = shell;
-            shell.DataContext = new ShellViewModel(dialogService);
+            shell.DataContext = new ShellViewModel(dialogService, userDataAddDialogService);
             shell.Show();
         }
     }

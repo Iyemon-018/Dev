@@ -67,9 +67,25 @@
                     </Grid>
                 </Border>
                 <Grid Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Margin="16,16,16,0">
+                            <DataGrid ItemsSource="{Binding UserDataItems, Mode=OneWay}" />
+                        </Border>
+                        <Border Grid.Row="1" Margin="16,8">
+                            <Button HorizontalAlignment="Right"
+                                    Command="{Binding UserDataAddCommand, Mode=OneTime}"
+                                    Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
+                                <materialDesign:PackIcon Width="40"
+                                                         Height="40"
+                                                         Kind="Plus" />
+                            </Button>
+                        </Border>
+                    </Grid>
+                    <materialDesign:DialogHost Identifier="UserDataAddDialogHost" />
                 </Grid>
             </Grid>
         </Border>
