@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MaterialDesign.Dialog.Example
+namespace MaterialDesign.Dialog.Example.Dialogs
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// UserDataAddDialog.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserDataAddDialog : UserControl
     {
-        public MainWindow()
+        public UserDataAddDialog()
         {
             InitializeComponent();
         }
