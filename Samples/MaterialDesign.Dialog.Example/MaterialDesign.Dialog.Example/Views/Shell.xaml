@@ -73,7 +73,29 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Border Grid.Row="0" Margin="16,16,16,0">
-                            <DataGrid ItemsSource="{Binding UserDataItems, Mode=OneWay}" />
+                            <DataGrid AutoGenerateColumns="False"
+                                      CanUserAddRows="False"
+                                      CanUserReorderColumns="False"
+                                      CanUserResizeColumns="False"
+                                      CanUserResizeRows="False"
+                                      FontSize="20"
+                                      CanUserSortColumns="False"
+                                      ItemsSource="{Binding UserDataItems, Mode=OneWay}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding FirstName, Mode=OneWay}"
+                                                        ClipboardContentBinding="{x:Null}"
+                                                        Header="性"
+                                                        IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding LastName, Mode=OneWay}"
+                                                        ClipboardContentBinding="{x:Null}"
+                                                        Header="名"
+                                                        IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Age, Mode=OneWay, StringFormat=\{0:D\}才}"
+                                                        ClipboardContentBinding="{x:Null}"
+                                                        Header="年齢"
+                                                        IsReadOnly="True" />
+                                </DataGrid.Columns>
+                            </DataGrid>
                         </Border>
                         <Border Grid.Row="1" Margin="16,8">
                             <Button HorizontalAlignment="Right"
