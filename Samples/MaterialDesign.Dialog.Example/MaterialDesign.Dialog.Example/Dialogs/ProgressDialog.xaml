@@ -7,6 +7,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              d:DataContext="{d:DesignInstance {x:Type ViewModels:ProgressDialogViewModel},
                                               IsDesignTimeCreatable=True}"
+             SnapsToDevicePixels="True"
+             UseLayoutRounding="True"
              mc:Ignorable="d">
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
@@ -28,15 +30,17 @@
         <Border Grid.Row="0"
                 Grid.Column="1"
                 Margin="0,16,12,8">
-            <TextBlock Text="{Binding Message, Mode=OneWay}" />
+            <TextBlock FontSize="20" Text="{Binding Message, Mode=OneWay}" />
         </Border>
         <Border Grid.Row="1" Grid.ColumnSpan="2">
             <StackPanel Margin="16,8"
                         HorizontalAlignment="Right"
                         Orientation="Horizontal">
-                <TextBlock Text="{Binding Progress, Mode=OneWay}" />
-                <TextBlock Margin="8,0" Text="/" />
-                <TextBlock Text="{Binding Count, Mode=OneWay}" />
+                <TextBlock FontSize="14" Text="{Binding Progress, Mode=OneWay}" />
+                <TextBlock Margin="8,0"
+                           FontSize="14"
+                           Text="/" />
+                <TextBlock FontSize="14" Text="{Binding Count, Mode=OneWay}" />
             </StackPanel>
         </Border>
     </Grid>
