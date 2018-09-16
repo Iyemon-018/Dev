@@ -92,10 +92,14 @@
     <Compile Include="Dialogs\MessageDialog.xaml.cs">
       <DependentUpon>MessageDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ProgressDialog.xaml.cs">
+      <DependentUpon>ProgressDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\UserDataAddDialog.xaml.cs">
       <DependentUpon>UserDataAddDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\ViewModels\MessageDialogViewModel.cs" />
+    <Compile Include="Dialogs\ViewModels\ProgressDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModels\UserDataAddViewModel.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\IDialogService.cs" />
@@ -136,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Dialogs\MessageDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ProgressDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\UserDataAddDialog.xaml">
