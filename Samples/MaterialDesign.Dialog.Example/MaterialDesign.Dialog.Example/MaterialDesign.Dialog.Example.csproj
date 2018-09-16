@@ -103,7 +103,10 @@
     <Compile Include="Dialogs\ViewModels\UserDataAddViewModel.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Services\IProgressDialog.cs" />
     <Compile Include="Services\IUserDataAddDialogService.cs" />
+    <Compile Include="Services\ProgressDialogService.cs" />
+    <Compile Include="Services\ProgressStatus.cs" />
     <Compile Include="Services\UserDataAddDialogService.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\UserDataViewModel.cs" />

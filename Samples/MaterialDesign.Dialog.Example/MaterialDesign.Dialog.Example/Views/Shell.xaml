@@ -78,8 +78,8 @@
                                       CanUserReorderColumns="False"
                                       CanUserResizeColumns="False"
                                       CanUserResizeRows="False"
-                                      FontSize="20"
                                       CanUserSortColumns="False"
+                                      FontSize="20"
                                       ItemsSource="{Binding UserDataItems, Mode=OneWay}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Binding="{Binding FirstName, Mode=OneWay}"
@@ -98,13 +98,22 @@
                             </DataGrid>
                         </Border>
                         <Border Grid.Row="1" Margin="16,8">
-                            <Button HorizontalAlignment="Right"
-                                    Command="{Binding UserDataAddCommand, Mode=OneTime}"
-                                    Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-                                <materialDesign:PackIcon Width="40"
-                                                         Height="40"
-                                                         Kind="Plus" />
-                            </Button>
+                            <Grid>
+                                <Button HorizontalAlignment="Right"
+                                        Command="{Binding UserDataAddCommand, Mode=OneTime}"
+                                        Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
+                                    <materialDesign:PackIcon Width="40"
+                                                             Height="40"
+                                                             Kind="Plus" />
+                                </Button>
+                                <Button HorizontalAlignment="Left"
+                                        Command="{Binding GetAllUserDataCommand, Mode=OneTime}"
+                                        Style="{StaticResource MaterialDesignFloatingActionLightButton}">
+                                    <materialDesign:PackIcon Width="40"
+                                                             Height="40"
+                                                             Kind="Import" />
+                                </Button>
+                            </Grid>
                         </Border>
                     </Grid>
                     <materialDesign:DialogHost Identifier="UserDataAddDialogHost" />
@@ -112,5 +121,6 @@
             </Grid>
         </Border>
         <materialDesign:DialogHost Identifier="MessageDialogHost" />
+        <materialDesign:DialogHost Identifier="ProgressDialogHost" />
     </Grid>
 </Window>

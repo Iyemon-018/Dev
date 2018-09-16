@@ -17,12 +17,13 @@ namespace MaterialDesign.Dialog.Example
         {
             base.InitializeShell();
 
-            DialogService dialogService = new DialogService("MessageDialogHost");
+            DialogService            dialogService            = new DialogService("MessageDialogHost");
+            ProgressDialogService    progressDialogService    = new ProgressDialogService("ProgressDialogHost");
             UserDataAddDialogService userDataAddDialogService = new UserDataAddDialogService("UserDataAddDialogHost");
 
             Shell shell = Shell as Shell;
             App.Current.MainWindow = shell;
-            shell.DataContext = new ShellViewModel(dialogService, userDataAddDialogService);
+            shell.DataContext      = new ShellViewModel(dialogService, progressDialogService, userDataAddDialogService);
             shell.Show();
         }
     }
