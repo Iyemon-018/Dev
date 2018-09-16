@@ -97,6 +97,8 @@
     </Compile>
     <Compile Include="Dialogs\ViewModels\MessageDialogViewModel.cs" />
     <Compile Include="Dialogs\ViewModels\UserDataAddViewModel.cs" />
+    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\IDialogService.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\UserDataViewModel.cs" />
     <Compile Include="Views\Shell.xaml.cs">

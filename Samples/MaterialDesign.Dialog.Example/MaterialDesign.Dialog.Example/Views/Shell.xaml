@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:MaterialDesign.Dialog.Example.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:viewModels="clr-namespace:MaterialDesign.Dialog.Example.ViewModels"
@@ -24,7 +25,10 @@
                       ResizeBorderThickness="3" />
     </WindowChrome.WindowChrome>
     <Grid x:Name="LayoutRoot">
-        <Border BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="1" UseLayoutRounding="True" SnapsToDevicePixels="True">
+        <Border BorderBrush="{StaticResource PrimaryHueMidBrush}"
+                BorderThickness="1"
+                SnapsToDevicePixels="True"
+                UseLayoutRounding="True">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -45,8 +49,9 @@
                                Source="{Binding Icon, ElementName=window, Mode=OneTime}" />
                         <TextBlock Grid.Column="1"
                                    VerticalAlignment="Center"
+                                   FontSize="20"
                                    Foreground="{StaticResource PrimaryHueMidForegroundBrush}"
-                                   Text="{Binding Title, ElementName=window, Mode=OneTime}" FontSize="20" />
+                                   Text="{Binding Title, ElementName=window, Mode=OneTime}" />
                         <Button Grid.Column="3"
                                 Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}"
                                 Height="Auto"
@@ -55,9 +60,10 @@
                                 Command="{Binding ShutdownCommand, Mode=OneTime}"
                                 Content="r"
                                 FontFamily="Marlett"
+                                FontSize="20"
                                 Foreground="{StaticResource PrimaryHueMidForegroundBrush}"
                                 Style="{StaticResource MaterialDesignFlatButton}"
-                                WindowChrome.IsHitTestVisibleInChrome="True" FontSize="20" />
+                                WindowChrome.IsHitTestVisibleInChrome="True" />
                     </Grid>
                 </Border>
                 <Grid Grid.Row="1">
@@ -67,5 +73,6 @@
                 </Grid>
             </Grid>
         </Border>
+        <materialDesign:DialogHost Identifier="MessageDialogHost" />
     </Grid>
 </Window>
