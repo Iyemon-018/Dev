@@ -1,0 +1,36 @@
+﻿<Window x:Class="WindowsCommunityToolkit.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=Microsoft.Toolkit.Wpf.UI.Controls"
+        xmlns:XamlHost="clr-namespace:Microsoft.Toolkit.Wpf.UI.XamlHost;assembly=Microsoft.Toolkit.Wpf.UI.XamlHost"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WindowsCommunityToolkit.Wpf"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uiControls="clr-namespace:Microsoft;assembly=Microsoft.Toolkit.Wpf.UI.Controls"
+        xmlns:xamlHost="clr-namespace:Microsoft;assembly=Microsoft.Toolkit.Wpf.UI.XamlHost"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+    <Grid>
+        <UniformGrid Rows="4" TextElement.FontSize="36">
+            <XamlHost:WindowsXamlHost x:Name="InkToolbarViewButton"
+                                      Margin="0,12"
+                                      ChildChanged="InkToolbarViewButton_ChildChanged"
+                                      InitialTypeName="Windows.UI.Xaml.Controls.Button" />
+            <XamlHost:WindowsXamlHost x:Name="InkCanvasViewButton"
+                                      Margin="0,12"
+                                      ChildChanged="InkCanvasViewButton_OnChildChanged"
+                                      InitialTypeName="Windows.UI.Xaml.Controls.Button" />
+            <XamlHost:WindowsXamlHost x:Name="MediaPlayerElementViewButton"
+                                      Margin="0,12"
+                                      ChildChanged="MediaPlayerElementViewButton_OnChildChanged"
+                                      InitialTypeName="Windows.UI.Xaml.Controls.Button" />
+            <XamlHost:WindowsXamlHost x:Name="MapControlViewButton"
+                                      Margin="0,12"
+                                      ChildChanged="MapControlViewButton_OnChildChanged"
+                                      InitialTypeName="Windows.UI.Xaml.Controls.Button" />
+
+        </UniformGrid>
+    </Grid>
+</Window>
