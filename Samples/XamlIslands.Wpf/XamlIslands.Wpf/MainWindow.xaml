@@ -25,6 +25,20 @@
                     <toolkit.controls:InkCanvas x:Name="InkCanvas" Grid.Row="1" />
                 </Grid>
             </TabItem>
+            <TabItem Header="Map">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <toolkit.controls:MapControl x:Name="MapControl"
+                                                 DesiredPitch="20"
+                                                 LandmarksVisible="True"
+                                                 Loaded="MapControl_OnLoaded"
+                                                 PedestrianFeaturesVisible="True"
+                                                 TrafficFlowVisible="True" />
+                </Grid>
+            </TabItem>
         </dragablz:TabablzControl>
     </Grid>
 </Window>

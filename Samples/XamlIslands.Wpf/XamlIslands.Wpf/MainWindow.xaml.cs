@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace XamlIslands.Wpf
+﻿namespace XamlIslands.Wpf
 {
+    using System.Windows;
+    using Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT;
+
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
@@ -23,6 +11,13 @@ namespace XamlIslands.Wpf
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void MapControl_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            BasicGeoposition cityPosition = new BasicGeoposition { Latitude = 34.702476, Longitude = 135.495946};
+            Geopoint         cityCenter   = new Geopoint(cityPosition);
+            bool result = await MapControl.TrySetViewAsync(center:cityCenter, zoomLevel:14);
         }
     }
 }
