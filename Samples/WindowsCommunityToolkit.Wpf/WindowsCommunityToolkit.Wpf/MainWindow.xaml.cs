@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows;
+using Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT;
+using Microsoft.Toolkit.Wpf.UI.Controls;
 using Microsoft.Toolkit.Wpf.UI.XamlHost;
 using RoutedEventArgs = Windows.UI.Xaml.RoutedEventArgs;
 
@@ -27,7 +29,7 @@ namespace WindowsCommunityToolkit.Wpf
 
         private void InkToolbarViewButton_OnClick(object sender, RoutedEventArgs e)
         {
-
+            new InkToolbarPreviewWindow().Show();
         }
 
         private void InkCanvasViewButton_OnChildChanged(object sender, EventArgs e)
@@ -80,6 +82,25 @@ namespace WindowsCommunityToolkit.Wpf
             InkCanvasViewButton.ChildChanged          -= InkCanvasViewButton_OnChildChanged;
             MediaPlayerElementViewButton.ChildChanged -= MediaPlayerElementViewButton_OnChildChanged;
             MapControlViewButton.ChildChanged         -= MapControlViewButton_OnChildChanged;
+        }
+        
+        private void MainWindow_OnLoaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (sender is InkCanvas inkCanvas)
+            {
+                // Set supported inking device types.
+                inkCanvas.InkPresenter.InputDeviceTypes =
+                    CoreInputDeviceTypes.Mouse |
+                    CoreInputDeviceTypes.Pen;
+
+                // Set initial ink stroke attributes.
+                //InkDrawingAttributes drawingAttributes = new InkDrawingAttributes();
+                //drawingAttributes.Color          = Windows.UI.Colors.Black;
+                //drawingAttributes.IgnorePressure = false;
+                //drawingAttributes.FitToCurve     = true;
+                //inkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
+                inkCanvas.InkPresenter.IsInputEnabled = true;
+            }
         }
     }
 }

@@ -11,9 +11,12 @@
         Title="MainWindow"
         Width="800"
         Height="450"
+        Loaded="MainWindow_OnLoaded"
         mc:Ignorable="d">
     <Grid>
-        <UniformGrid Rows="4" TextElement.FontSize="36">
+        <UniformGrid Height="0"
+                     Rows="4"
+                     TextElement.FontSize="36">
             <XamlHost:WindowsXamlHost x:Name="InkToolbarViewButton"
                                       Margin="0,12"
                                       ChildChanged="InkToolbarViewButton_ChildChanged"
@@ -32,5 +35,8 @@
                                       InitialTypeName="Windows.UI.Xaml.Controls.Button" />
 
         </UniformGrid>
+        <Controls:InkCanvas />
+        <!--<Controls:InkToolbar/>-->
+        <!--<Controls:MediaPlayerElement></Controls:MediaPlayerElement>-->
     </Grid>
 </Window>
