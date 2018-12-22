@@ -31,12 +31,41 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <toolkit.controls:MapControl x:Name="MapControl"
-                                                 DesiredPitch="20"
-                                                 LandmarksVisible="True"
-                                                 Loaded="MapControl_OnLoaded"
-                                                 PedestrianFeaturesVisible="True"
-                                                 TrafficFlowVisible="True" />
+                    <toolkit.controls:MapControl x:Name="MapControl" Loaded="MapControl_OnLoaded" />
+                    <Border Grid.Row="1" Padding="16,16">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <DockPanel>
+                                <TextBlock HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           DockPanel.Dock="Left"
+                                           Text="Zoom Level" />
+                                <Slider x:Name="ZoomSlider"
+                                        Margin="32,0,0,0"
+                                        Maximum="{Binding ElementName=MapControl, Path=MaxZoomLevel, Mode=OneTime}"
+                                        Minimum="{Binding ElementName=MapControl, Path=MinZoomLevel, Mode=OneTime}"
+                                        Style="{StaticResource MaterialDesignDiscreteSlider}"
+                                        ValueChanged="ZoomSlider_OnValueChanged" />
+                            </DockPanel>
+                            <DockPanel Grid.Row="1">
+                                <TextBlock HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           DockPanel.Dock="Left"
+                                           Text="Rotate" />
+                                <Slider x:Name="RotateSlider"
+                                        Margin="32,0,0,0"
+                                        Maximum="360"
+                                        Minimum="0"
+                                        Style="{StaticResource MaterialDesignDiscreteSlider}"
+                                        ValueChanged="RotateSlider_OnValueChanged"
+                                        Value="0" />
+                            </DockPanel>
+                        </Grid>
+                    </Border>
                 </Grid>
             </TabItem>
         </dragablz:TabablzControl>
