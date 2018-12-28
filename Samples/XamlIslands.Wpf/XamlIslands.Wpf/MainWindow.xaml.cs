@@ -55,10 +55,17 @@
                 return;
             }
 
-            // 現在の座標はActualCamera.Location で取得できる。
-            // 拡大率の取得方法は今の所わかっていない。
-            bool result = await MapControl.TrySetViewAsync(center: MapControl.ActualCamera.Location, zoomLevel: 14
-                                                         , heading: RotateSlider.Value, desiredPitch: 0);
+            await MapControl.TryRotateToAsync(RotateSlider.Value);
+        }
+
+        private async void TiltSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (!_isLoadedMap)
+            {
+                return;
+            }
+
+            await MapControl.TryTiltToAsync(TiltSlider.Value);
         }
     }
 }
