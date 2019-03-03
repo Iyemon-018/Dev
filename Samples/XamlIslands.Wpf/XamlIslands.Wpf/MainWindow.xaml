@@ -64,6 +64,23 @@
                                         ValueChanged="RotateSlider_OnValueChanged"
                                         Value="0" />
                             </DockPanel>
+                            <DockPanel Grid.Row="2">
+                                <TextBlock HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           DockPanel.Dock="Left"
+                                           Text="Tilt" />
+                                <!--
+                                    最大値については以下のページを参照
+                                    https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.maps.mapcamera.pitch#Windows_UI_Xaml_Controls_Maps_MapCamera_Pitch
+                                -->
+                                <Slider x:Name="TiltSlider"
+                                        Margin="32,0,0,0"
+                                        Maximum="70"
+                                        Minimum="0"
+                                        Style="{StaticResource MaterialDesignDiscreteSlider}"
+                                        ValueChanged="TiltSlider_OnValueChanged"
+                                        Value="0" />
+                            </DockPanel>
                         </Grid>
                     </Border>
                 </Grid>
