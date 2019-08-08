@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <UniformGrid Margin="12" Rows="4" Columns="4">
+            <Button Content="Test Button" Click="TestButton_OnClick"></Button>
+            <Button Content="Music Event Button" Click="MusicEventButton_OnClick"></Button>
+        </UniformGrid>
     </Grid>
 </Window>
