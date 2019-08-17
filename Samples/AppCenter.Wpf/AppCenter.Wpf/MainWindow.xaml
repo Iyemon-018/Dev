@@ -5,11 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppCenter.Wpf"
         mc:Ignorable="d"
+        Loaded="MainWindow_OnLoaded"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <UniformGrid Margin="12" Rows="4" Columns="4">
+            <UniformGrid.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="12,8"></Setter>
+                </Style>
+            </UniformGrid.Resources>
             <Button Content="Test Button" Click="TestButton_OnClick"></Button>
             <Button Content="Music Event Button" Click="MusicEventButton_OnClick"></Button>
+            <Button Content="Crash" Background="Red" Foreground="White" Click="CrashButton_OnClick"></Button>
         </UniformGrid>
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿namespace AppCenter.Wpf
 {
     using System.Windows;
+    using System.Windows.Threading;
     using Microsoft.AppCenter;
     using Microsoft.AppCenter.Analytics;
     using Microsoft.AppCenter.Crashes;
@@ -10,7 +11,15 @@
     /// </summary>
     public partial class App : Application
     {
-        #region Methods
+        public App()
+        {
+            DispatcherUnhandledException += OnDispatcherUnhandledException;
+        }
+
+        private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show(e.Exception.Message, "Crash!!", MessageBoxButton.OK, MessageBoxImage.Stop);
+        }
 
         /// <summary>
         /// <see cref="E:System.Windows.Application.Startup" /> イベントを発生させます。
@@ -32,7 +41,5 @@
             AppCenterAnalytics.Initialize();
             AppCenterAnalytics.SetCountryCode();
         }
-
-        #endregion
     }
 }
