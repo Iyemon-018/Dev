@@ -37,6 +37,7 @@
             if (didAppCrash)
             {
                 ErrorReport crashReport = await Crashes.GetLastSessionCrashReportAsync();
+
                 MessageBox.Show($"前回セッションでクラッシュしました。{Environment.NewLine}"
                                 + $"- 発生日時 : {crashReport.AppErrorTime}{Environment.NewLine}"
                                 + $"- エラー内容 : {crashReport.Exception.Message}"

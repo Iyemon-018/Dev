@@ -37,6 +37,32 @@
             Analytics.SetEnabledAsync(true);
 #endif
 
+            // アプリ固有の CustomException がスローされた場合、ShouldReportProcessed = true (= 処理済み) であればレポートを出力しない。
+            // ShouldReportProcessed = false (= 未処理) もしくは CustomException 以外の例外はレポートに通知する。
+            Crashes.ShouldProcessErrorReport = (ErrorReport report)
+                                                   => !(report.Exception is CustomException customException)
+                                                      || !customException.ShouldReportProcessed;
+
+            Crashes.ShouldAwaitUserConfirmation = () =>
+                                                  {
+                                                      MessageBoxResult result = MessageBox.Show("クラッシュレポートを送信します。よろしいでしょうか？"
+                                                                                              , "Question"
+                                                                                              , MessageBoxButton.YesNo
+                                                                                              , MessageBoxImage.Question);
+
+                                                      if (result == MessageBoxResult.Yes)
+                                                      {
+                                                          Crashes.NotifyUserConfirmation(UserConfirmation.Send);
+
+                                                          return true;
+                                                      }
+                                                      else
+                                                      {
+                                                          Crashes.NotifyUserConfirmation(UserConfirmation.DontSend);
+
+                                                          return false;
+                                                      }
+                                                  };
             AppCenter.Start("00289a3c-e780-405d-b78c-4fecdef2269c", typeof(Analytics), typeof(Crashes));
             AppCenterAnalytics.Initialize();
             AppCenterAnalytics.SetCountryCode();
