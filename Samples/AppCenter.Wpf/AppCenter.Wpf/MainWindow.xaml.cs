@@ -33,23 +33,33 @@
 
         private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            //bool didAppCrash = await Crashes.HasCrashedInLastSessionAsync();
-            //if (didAppCrash)
-            //{
-            //    ErrorReport crashReport = await Crashes.GetLastSessionCrashReportAsync();
-
-            //    MessageBox.Show($"前回セッションでクラッシュしました。{Environment.NewLine}"
-            //                    + $"- 発生日時 : {crashReport.AppErrorTime}{Environment.NewLine}"
-            //                    + $"- エラー内容 : {crashReport.Exception.Message}"
-            //                  , "Report"
-            //                  , MessageBoxButton.OK
-            //                  , MessageBoxImage.Information);
-            //}
-
-            bool isEnabled = await Crashes.IsEnabledAsync();
-            if (!isEnabled)
+            bool didAppCrash = await Crashes.HasCrashedInLastSessionAsync();
+            if (didAppCrash)
             {
-                MessageBox.Show("無効");
+                ErrorReport crashReport = await Crashes.GetLastSessionCrashReportAsync();
+
+                MessageBox.Show($"前回セッションでクラッシュしました。{Environment.NewLine}"
+                                + $"- 発生日時 : {crashReport.AppErrorTime}{Environment.NewLine}"
+                                + $"- エラー内容 : {crashReport.Exception.Message}"
+                              , "Report"
+                              , MessageBoxButton.OK
+                              , MessageBoxImage.Information);
+            }
+        }
+
+        private void ExceptionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                throw new ApplicationException($"これは手動で発生さました。- Exception ({DateTime.Now:yyyy-MM-dd HH:mm:ss})");
+            }
+            catch (ApplicationException exception)
+            {
+                var properties = new Dictionary<string, string>
+                                 {
+                                     { "Category", "Test" },
+                                 };
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(exception, properties);
             }
         }
     }

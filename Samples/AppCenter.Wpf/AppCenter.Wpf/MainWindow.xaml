@@ -17,6 +17,7 @@
             <Button Content="Test Button" Click="TestButton_OnClick"></Button>
             <Button Content="Music Event Button" Click="MusicEventButton_OnClick"></Button>
             <Button Content="Crash" Background="Red" Foreground="White" Click="CrashButton_OnClick"></Button>
+            <Button Content="Exception" Background="Yellow" Foreground="Black" Click="ExceptionButton_OnClick"></Button>
         </UniformGrid>
     </Grid>
 </Window>
