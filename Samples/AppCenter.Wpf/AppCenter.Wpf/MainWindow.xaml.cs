@@ -33,17 +33,23 @@
 
         private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            bool didAppCrash = await Crashes.HasCrashedInLastSessionAsync();
-            if (didAppCrash)
-            {
-                ErrorReport crashReport = await Crashes.GetLastSessionCrashReportAsync();
+            //bool didAppCrash = await Crashes.HasCrashedInLastSessionAsync();
+            //if (didAppCrash)
+            //{
+            //    ErrorReport crashReport = await Crashes.GetLastSessionCrashReportAsync();
 
-                MessageBox.Show($"前回セッションでクラッシュしました。{Environment.NewLine}"
-                                + $"- 発生日時 : {crashReport.AppErrorTime}{Environment.NewLine}"
-                                + $"- エラー内容 : {crashReport.Exception.Message}"
-                              , "Report"
-                              , MessageBoxButton.OK
-                              , MessageBoxImage.Information);
+            //    MessageBox.Show($"前回セッションでクラッシュしました。{Environment.NewLine}"
+            //                    + $"- 発生日時 : {crashReport.AppErrorTime}{Environment.NewLine}"
+            //                    + $"- エラー内容 : {crashReport.Exception.Message}"
+            //                  , "Report"
+            //                  , MessageBoxButton.OK
+            //                  , MessageBoxImage.Information);
+            //}
+
+            bool isEnabled = await Crashes.IsEnabledAsync();
+            if (!isEnabled)
+            {
+                MessageBox.Show("無効");
             }
         }
     }
