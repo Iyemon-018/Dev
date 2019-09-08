@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Reflection;
     using System.Windows;
     using Microsoft.AppCenter.Analytics;
     using Microsoft.AppCenter.Crashes;
@@ -14,6 +15,9 @@
         public MainWindow()
         {
             InitializeComponent();
+
+            var version = Assembly.GetEntryAssembly().GetName().Version;
+            Title = $"{Title} - Ver.{version}";
         }
 
         private void TestButton_OnClick(object sender, RoutedEventArgs e)

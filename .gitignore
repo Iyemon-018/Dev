@@ -1,6 +1,7 @@
 *.exe
 *.pdb
 **/obj/
+**/obj/**/*.*
 **/bin/
 **/packages
 *.DotSettings
@@ -11,3 +12,4 @@
 *.suo
 *.user
 /Samples/EnumConstantsSample/EnumConstantsSample.sln.GhostDoc.xml
+*.msi
