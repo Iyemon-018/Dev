@@ -7,14 +7,7 @@ using System.Windows;
 // アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
-[assembly: AssemblyTitle("AppCenter.Wpf")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AppCenter.Wpf")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+
 
 // ComVisible を false に設定すると、このアセンブリ内の型は COM コンポーネントから
 // 参照できなくなります。COM からこのアセンブリ内の型にアクセスする必要がある場合は、
@@ -25,7 +18,14 @@ using System.Windows;
 //.csproj ファイルの <UICulture>CultureYouAreCodingWith</UICulture> を
 //<PropertyGroup> 内部で設定します。たとえば、
 //ソース ファイルで英語を使用している場合、<UICulture> を en-US に設定します。次に、
-//下の NeutralResourceLanguage 属性のコメントを解除します。下の行の "en-US" を
+//下の NeutralResourceLanguage 属性のコメントを解除します。下の行の "//[assembly: AssemblyTitle("AppCenter.Wpf")]
+//[assembly: AssemblyDescription("")]
+//[assembly: AssemblyConfiguration("")]
+//[assembly: AssemblyCompany("")]
+//[assembly: AssemblyProduct("AppCenter.Wpf")]
+//[assembly: AssemblyCopyright("Copyright ©  2019")]
+//[assembly: AssemblyTrademark("")]
+//[assembly: AssemblyCulture("")]en-US" を
 //プロジェクト ファイルの UICulture 設定と一致するよう更新します。
 
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
@@ -51,5 +51,5 @@ using System.Windows;
 // すべての値を指定するか、次を使用してビルド番号とリビジョン番号を既定に設定できます
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+//[assembly: AssemblyVersion("1.0.0.0")]
+//[assembly: AssemblyFileVersion("1.0.0.0")]
