@@ -100,20 +100,21 @@
                                               ErrorAttachmentLog textLog =
                                                   ErrorAttachmentLog.AttachmentWithText("This is a text attachment.", "text.txt");
 
-                                              byte[] imageBuffer;
-                                              using (var bitmap = new Bitmap("test-image.png"))
-                                                  using (var ms = new MemoryStream())
-                                              {
-                                                  bitmap.Save(ms, ImageFormat.Png);
-                                                  imageBuffer = ms.GetBuffer();
-                                              }
+                                              //byte[] imageBuffer;
+                                              //using (var bitmap = new Bitmap("test-image.png"))
+                                              //    using (var ms = new MemoryStream())
+                                              //{
+                                              //    bitmap.Save(ms, ImageFormat.Png);
+                                              //    imageBuffer = ms.GetBuffer();
+                                              //}
 
-                                              ErrorAttachmentLog binaryLog =
-                                                  ErrorAttachmentLog.AttachmentWithBinary(imageBuffer, "test-image.png", "image/jpeg");
+                                              //ErrorAttachmentLog binaryLog =
+                                              //    ErrorAttachmentLog.AttachmentWithBinary(imageBuffer, "test-image.png", "image/jpeg");
 
                                               MessageBox.Show("Get Error Attachments");
 
-                                              return new List<ErrorAttachmentLog> {textLog, binaryLog};
+                                              //return new List<ErrorAttachmentLog> {textLog, binaryLog};
+                                              return new List<ErrorAttachmentLog> { textLog };
                                           };
 
             AppCenter.Start("00289a3c-e780-405d-b78c-4fecdef2269c", typeof(Analytics), typeof(Crashes));
