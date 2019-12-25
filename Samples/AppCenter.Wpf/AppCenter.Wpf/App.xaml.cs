@@ -1,5 +1,6 @@
 ﻿namespace AppCenter.Wpf
 {
+    using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Drawing.Imaging;
@@ -15,6 +16,8 @@
     /// </summary>
     public partial class App : Application
     {
+        private static readonly string AppToken = "00289a3c-e780-405d-b78c-4fecdef2269c";
+
         public App()
         {
             DispatcherUnhandledException += OnDispatcherUnhandledException;
@@ -36,7 +39,7 @@
             base.OnStartup(e);
 
 #if DEBUG
-            Analytics.SetEnabledAsync(false);
+            Analytics.SetEnabledAsync(true);
 #else
             Analytics.SetEnabledAsync(true);
 #endif
@@ -71,10 +74,10 @@
             Crashes.SendingErrorReport += (object sender, SendingErrorReportEventArgs sere) =>
                                           {
                                               // Your code, e.g. to present a custom UI.
-                                              MessageBox.Show("クラッシュ レポートを送っています。"
-                                                            , "Sending Crash Report"
-                                                            , MessageBoxButton.OK
-                                                            , MessageBoxImage.Information);
+                                              //MessageBox.Show("クラッシュ レポートを送っています。"
+                                              //              , "Sending Crash Report"
+                                              //              , MessageBoxButton.OK
+                                              //              , MessageBoxImage.Information);
                                           };
 
             Crashes.SentErrorReport += (object sender, SentErrorReportEventArgs sere) =>
@@ -89,16 +92,16 @@
             Crashes.FailedToSendErrorReport += (object sender, FailedToSendErrorReportEventArgs ftsere) =>
                                                {
                                                    // Your code goes here.
-                                                   MessageBox.Show("クラッシュ レポートの送信に失敗しました。"
-                                                                 , "Send Crash Report Failed"
-                                                                 , MessageBoxButton.OK
-                                                                 , MessageBoxImage.Information);
+                                                   //MessageBox.Show("クラッシュ レポートの送信に失敗しました。"
+                                                   //              , "Send Crash Report Failed"
+                                                   //              , MessageBoxButton.OK
+                                                   //              , MessageBoxImage.Information);
                                                };
 
-            Crashes.GetErrorAttachments = (ErrorReport report) =>
-                                          {
-                                              ErrorAttachmentLog textLog =
-                                                  ErrorAttachmentLog.AttachmentWithText("This is a text attachment.", "text.txt");
+            //Crashes.GetErrorAttachments = (ErrorReport report) =>
+            //                              {
+                                              //ErrorAttachmentLog textLog =
+                                              //    ErrorAttachmentLog.AttachmentWithText("This is a text attachment.", "text.txt");
 
                                               //byte[] imageBuffer;
                                               //using (var bitmap = new Bitmap("test-image.png"))
@@ -111,13 +114,13 @@
                                               //ErrorAttachmentLog binaryLog =
                                               //    ErrorAttachmentLog.AttachmentWithBinary(imageBuffer, "test-image.png", "image/jpeg");
 
-                                              MessageBox.Show("Get Error Attachments");
+                                              //MessageBox.Show("Get Error Attachments");
 
                                               //return new List<ErrorAttachmentLog> {textLog, binaryLog};
-                                              return new List<ErrorAttachmentLog> { textLog };
-                                          };
+                                              //return new List<ErrorAttachmentLog> { textLog };
+                                          //};
 
-            AppCenter.Start("00289a3c-e780-405d-b78c-4fecdef2269c", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start(AppToken, typeof(Analytics), typeof(Crashes));
             AppCenterAnalytics.Initialize();
             AppCenterAnalytics.SetCountryCode();
         }
